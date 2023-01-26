@@ -24,22 +24,21 @@ public class DriverInstances {
 
     private static final Map<String, WebDriver> webDriverInstances = new HashMap();
 
-    // TODO: добавить другие драйвера
     static {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\chromedriver.exe");
-//        System.setProperty(GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\geckodriver.exe");
-//        System.setProperty(InternetExplorerDriverService.IE_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\IEDriverServer.exe");
-//        System.setProperty(EdgeDriverService.EDGE_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resourses\\MicrosoftWebDriver.exe");
+        System.setProperty(GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\geckodriver.exe");
+        System.setProperty(EdgeDriverService.EDGE_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resourses\\drivers\\msedgedriver.exe");
     }
 
-    private DriverInstances() {}
+    private DriverInstances() {
+    }
 
     /**
      * @param driverType - a type of driver to be initialized:
-     * GC - Google Chrome
-     * FF - Firefox
-     * IE - Internet Explorer
-     * EG - Edge
+     *                   GC - Google Chrome
+     *                   FF - Firefox
+     *                   IE - Internet Explorer
+     *                   EG - Edge
      */
 
     public static synchronized WebDriver getInstance(String driverType) {
@@ -51,11 +50,6 @@ public class DriverInstances {
                 HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
                 chromePrefs.put("profile.default_content_settings.popups", 0);
                 chromePrefs.put("download.prompt_for_download", false);
-//              List<String> ssFlags = new ArrayList<String>();
-//              ssFlags.add("same-site-by-default-cookies@1");
-//              ssFlags.add("cookies-without-same-site-must-be-secure@1");
-//              chromePrefs.put("browser.enabled_labs_experiments", ssFlags);
-//                chromePrefs.put("safebrowsing.enabled", "false");
                 chromePrefs.put("download.default_directory", downloadFilepath);
                 ChromeOptions options = new ChromeOptions();
                 options.setExperimentalOption("prefs", chromePrefs);
@@ -66,21 +60,21 @@ public class DriverInstances {
                 webDriver = new ChromeDriver(options);
                 break;
             case Variables.FIREFOX:
-//                FirefoxOptions firefoxOptions = new FirefoxOptions();
-//                firefoxOptions.addPreference("browser.download.dir", Variables.PROJECT_DOWNLOAD_PATH);
-//                firefoxOptions.addPreference("browser.download.folderList", 2);
-//                firefoxOptions.addPreference("browser.download.manager.showWhenStarting", false);
-//                firefoxOptions.addPreference("browser.helperApps.neverAsk.openFile",
-//                        Variables.MIME_TYPES);
-//                firefoxOptions.addPreference("browser.helperApps.neverAsk.saveToDisk",
-//                        Variables.MIME_TYPES);
-//                firefoxOptions.addPreference("browser.helperApps.alwaysAsk.force", false);
-//                firefoxOptions.addPreference("browser.download.manager.alertOnEXEOpen", false);
-//                firefoxOptions.addPreference("browser.download.manager.focusWhenStarting", false);
-//                firefoxOptions.addPreference("browser.download.manager.useWindow", false);
-//                firefoxOptions.addPreference("browser.download.manager.showAlertOnComplete", false);
-//                firefoxOptions.addPreference("browser.download.manager.closeWhenDone", false);
-//                webDriver = new FirefoxDriver(firefoxOptions);
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addPreference("browser.download.dir", Variables.PROJECT_DOWNLOAD_PATH);
+                firefoxOptions.addPreference("browser.download.folderList", 2);
+                firefoxOptions.addPreference("browser.download.manager.showWhenStarting", false);
+                firefoxOptions.addPreference("browser.helperApps.neverAsk.openFile",
+                        Variables.MIME_TYPES);
+                firefoxOptions.addPreference("browser.helperApps.neverAsk.saveToDisk",
+                        Variables.MIME_TYPES);
+                firefoxOptions.addPreference("browser.helperApps.alwaysAsk.force", false);
+                firefoxOptions.addPreference("browser.download.manager.alertOnEXEOpen", false);
+                firefoxOptions.addPreference("browser.download.manager.focusWhenStarting", false);
+                firefoxOptions.addPreference("browser.download.manager.useWindow", false);
+                firefoxOptions.addPreference("browser.download.manager.showAlertOnComplete", false);
+                firefoxOptions.addPreference("browser.download.manager.closeWhenDone", false);
+                webDriver = new FirefoxDriver(firefoxOptions);
                 break;
             case Variables.INTERNET_EXPLORER:
                 webDriver = new InternetExplorerDriver();
@@ -95,7 +89,7 @@ public class DriverInstances {
         }
         webDriverInstances.put(driverType, webDriver);
         System.out.println("New WebDriver instance has been initialized: " + driverType);
-        webDriver.manage().timeouts().setScriptTimeout(60,SECONDS);
+        webDriver.manage().timeouts().setScriptTimeout(60, SECONDS);
         webDriver.manage().timeouts().pageLoadTimeout(60, SECONDS);
         EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(webDriver);
         WebEventListener webEventListener = new WebEventListener();

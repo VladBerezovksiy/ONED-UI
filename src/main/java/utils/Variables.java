@@ -13,13 +13,11 @@ public class Variables {
     public static final String EDGE = "EG";
 
 
-
     /****** WINDOWS VERSIONS ************/
 
     public enum OSVersions {
         WIN7, WIN10
     }
-
 
 
     /***** THREAD SLEEP VALUES FOR MAKING PAUSES *****/
@@ -34,7 +32,6 @@ public class Variables {
     public static final int VERY_LONG_SLEEP3 = 15000;
 
 
-
     /***** FOLDERS CONTAINING FILES FOR UPLOAD TESTS *****/
 
     public static final String PROJECT_UPLOAD_TEST_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\uploadtest\\";
@@ -42,7 +39,6 @@ public class Variables {
     public static final String PROJECT_SCREENSHOT_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\screenshots\\";
     public static final String PROJECT_SIKULI_PATTERNS_WIN7 = System.getProperty("user.dir") + "\\src\\main\\resources\\sikuli_patterns_win7\\";
     public static final String PROJECT_SIKULI_PATTERNS_WIN10 = System.getProperty("user.dir") + "\\src\\main\\resources\\sikuli_patterns_win10\\";
-
 
 
     /***** SIKULI PATTERNS *****/
@@ -57,14 +53,12 @@ public class Variables {
     public static final String WINDOWS_CLOSE = "windows_close.png";
 
 
-
     /******** FILES EXTENSTIONS ******/
 
     public static final String FILE_ZIP = ".zip";
     public static final String FILE_EML = ".eml";
     public static final String FILE_CSV = ".csv";
     public static final String FILE_VCF = ".vcf";
-
 
 
     /************************CLUSTERS**********************************/
@@ -101,6 +95,9 @@ public class Variables {
 
     /************************************************************************************************/
 
+    public static final String MIME_TYPES = "application/vnd.ms-excel,application/zip,application/x-7z-compressed,application/xml," +
+            "application/x-rar-compressed,image/png,image/jpeg,text/calendar,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/vcard";
+
 
 
     public static final String ONED_URL = envSet[0][0];
@@ -115,7 +112,6 @@ public class Variables {
     public static final String INCORRECT_PASSWORD = "NonExist#123";
 
 
-
     /*********************SOCIAL ACCOUNTS************************************/
 
     public static final String GMAIL_EMAIL = "automationoned@gmail.com";
@@ -123,7 +119,6 @@ public class Variables {
 
     public static final String FACEBOOK_EMAIL = "automationoned@gmail.com";
     public static final String FACEBOOK_PASSWORD = "Temp1234%";
-
 
 
     /************ GENERAL CSS *****************/
