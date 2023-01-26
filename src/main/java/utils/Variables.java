@@ -116,21 +116,12 @@ public class Variables {
 
     /*********************SOCIAL ACCOUNTS************************************/
 
-    public static final String LINKEDIN_URL = "https://www.linkedin.com/";
-    public static final String TWITTER_URL = "https://twitter.com/";
+    public static final String GMAIL_URL = "https://www.linkedin.com/";
+    public static final String GMAIL_EMAIL = "vsmekhnov25@gmail.com";
+    public static final String GMAIL_PASSWORD = "Temp1234%";
     public static final String FACEBOOK_URL = "https://www.facebook.com/";
-    public static final String SOCIAL_EMAIL = "vsmekhnov25@gmail.com";
-    public static final String SOCIAL_PASSWORD = "Temp1234%";
     public static final String FACEBOOK_EMAIL = "test1936fcsd@gmail.com";
     public static final String FACEBOOK_PASSWORD = "it8sx989";
-
-
-
-    /************************REMOTE ACCOUNTS*********************************/
-    // TODO: добавить логины и пароли на соц сети для регистрации
-    public static final String GMAIL_URL = "https://gmail.com";
-    public static final String GMAIL_EMAIL = "nonwm583@gmail.com";
-    public static final String GMAIL_PASSWORD = "Temp1234%";
 
 
 
