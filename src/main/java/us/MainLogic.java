@@ -8,6 +8,7 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 import org.testng.Assert;
+import utils.Settings;
 import utils.Variables;
 
 import java.io.File;
@@ -495,7 +496,9 @@ public abstract class MainLogic {
 
 
     public String sikuliPatternSelectorOS() {
-        String versionOS = System.getProperty("os.name");
+        // TODO: пересмотреть первые две строчки
+//        String versionOS = System.getProperty("os.name");
+        String versionOS = Settings.OS.toString();
         String sikuliPattern = null;
         if (versionOS.equals(Variables.WINDOWS_10_NAME)) {
             sikuliPattern = Variables.PROJECT_SIKULI_PATTERNS_WIN10;

@@ -24,6 +24,7 @@ public class DriverInstances {
 
     private static final Map<String, WebDriver> webDriverInstances = new HashMap();
 
+    // TODO: добавить другие драйвера
     static {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\chromedriver.exe");
 //        System.setProperty(GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\geckodriver.exe");

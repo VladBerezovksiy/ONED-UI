@@ -33,6 +33,7 @@ public class LoginPageTestLogic extends MainLogic {
         browseLoginPage();
     }
 
+    // TODO: завтра начать писать локаторы на Логин страницу!
     public void incorrectCredentialsLogin(){
 //        waitForVisible(elements.loginPane);
 //        waitForVisible(elements.emailInput).sendKeys(Variables.NONEXISTENT_EMAIL);

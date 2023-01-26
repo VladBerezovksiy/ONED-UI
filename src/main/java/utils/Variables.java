@@ -13,11 +13,13 @@ public class Variables {
     public static final String EDGE = "EG";
 
 
+
     /****** WINDOWS VERSIONS ************/
 
     public enum OSVersions {
         WIN7, WIN10
     }
+
 
 
     /***** THREAD SLEEP VALUES FOR MAKING PAUSES *****/
@@ -32,24 +34,28 @@ public class Variables {
     public static final int VERY_LONG_SLEEP3 = 15000;
 
 
+
     /***** FOLDERS CONTAINING FILES FOR UPLOAD TESTS *****/
 
     public static final String PROJECT_UPLOAD_TEST_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\uploadtest\\";
     public static final String PROJECT_DOWNLOAD_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\download\\";
     public static final String PROJECT_SCREENSHOT_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\screenshots\\";
-    public static final String PROJECT_SIKULI_PATTERNS_WIN10 = System.getProperty("user.dir") + "\\src\\main\\resources\\sikuli_patterns_win10\\";
     public static final String PROJECT_SIKULI_PATTERNS_WIN7 = System.getProperty("user.dir") + "\\src\\main\\resources\\sikuli_patterns_win7\\";
+    public static final String PROJECT_SIKULI_PATTERNS_WIN10 = System.getProperty("user.dir") + "\\src\\main\\resources\\sikuli_patterns_win10\\";
+
 
 
     /***** SIKULI PATTERNS *****/
 
     public static final String WINDOWS_10_NAME = "Windows 10";
     public static final String WINDOWS_7_NAME = "Windows 7";
+
+    public static final String KEEP_FILE = "keep_file.png";
     public static final String UPLOAD_INPUT = "upload_input.png";
     public static final String UPLOAD_BUTTON = "upload_button.png";
     public static final String UPLOAD_CANCEL = "upload_cancel.png";
     public static final String WINDOWS_CLOSE = "windows_close.png";
-    public static final String KEEP_FILE = "keep_file.png";
+
 
 
     /******** FILES EXTENSTIONS ******/
@@ -58,6 +64,7 @@ public class Variables {
     public static final String FILE_EML = ".eml";
     public static final String FILE_CSV = ".csv";
     public static final String FILE_VCF = ".vcf";
+
 
 
     /************************CLUSTERS**********************************/
@@ -96,6 +103,7 @@ public class Variables {
     /************************************************************************************************/
 
 
+
     public static final String ONED_URL = envSet[0][0];
 
     public static final String MAIN_ACCOUNT = envSet[0][1];
@@ -103,6 +111,7 @@ public class Variables {
 
     public static final String COLLABORATOR_EMAIL = envSet[1][1];
     public static final String COLLABORATOR_PASSWORD = envSet[1][2];
+
 
 
     /*********************SOCIAL ACCOUNTS************************************/
@@ -116,11 +125,14 @@ public class Variables {
     public static final String FACEBOOK_PASSWORD = "it8sx989";
 
 
+
     /************************REMOTE ACCOUNTS*********************************/
     // TODO: добавить логины и пароли на соц сети для регистрации
     public static final String GMAIL_URL = "https://gmail.com";
     public static final String GMAIL_EMAIL = "nonwm583@gmail.com";
     public static final String GMAIL_PASSWORD = "Temp1234%";
+
+
 
     /************ GENERAL CSS *****************/
 
