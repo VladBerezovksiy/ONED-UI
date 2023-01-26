@@ -33,11 +33,31 @@ public class LoginPageTestLogic extends MainLogic {
         browseLoginPage();
     }
 
-    // TODO: завтра начать писать локаторы на Логин страницу!
-    public void incorrectCredentialsLogin(){
-//        waitForVisible(elements.loginPane);
-//        waitForVisible(elements.emailInput).sendKeys(Variables.NONEXISTENT_EMAIL);
-//        waitForVisible(elements.passwordInput).sendKeys(Variables.INCORRECT_PASSWORD);
-//        clickWhenReady(elements.loginButton);
+    public void incorrectCredentialsLogin() {
+        waitForVisible(elements.loginTitle);
+        waitForVisible(elements.emailInput).sendKeys(Variables.NONEXISTENT_EMAIL);
+        waitForVisible(elements.passwordInput).sendKeys(Variables.INCORRECT_PASSWORD);
+        clickWhenReady(elements.loginButton);
+    }
+
+    public void checkLoginPage() {
+        getRootPage();
+        incorrectCredentialsLogin();
+        login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
+        logOut();
+        waitForVisible(elements.forgotPasswordLink);
+    }
+
+    // TODO: доделать функционал если капча позволяет
+    public void checkForgotPasswordRestorationFunctionality() {
+        if (checkForExistence(elements.dForgotPasswordLink)) {
+            clickWhenReady(elements.forgotPasswordLink);
+            waitForVisible(elements.forgotResetButton);
+        }
+    }
+
+    public void verificationOnTheMainPage() {
+        login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
+        logOut();
     }
 }

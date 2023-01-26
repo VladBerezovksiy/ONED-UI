@@ -37,14 +37,12 @@ public abstract class MainLogic {
      * Should be implemented for each logic pages.
      * Example for Calendar: Login into the app → Switch to Calendar section.
      */
-    // TODO
     public abstract void getRootPage();
 
     /**
      * @implSpec implementation of getting back to
      * the zero-point right after a TC execution / failure etc.
      */
-    // TODO
     public abstract void backToRootPage();
 
     /**************************************** WAITS ****************************************/
@@ -619,20 +617,12 @@ public abstract class MainLogic {
      * Method performs login page browsing, which includes clearing all the cookies,
      * navigating to a page and window maximization
      */
-    // TODO: посмотреть при логирование есть-ли переключение языков
     public void browseLoginPage() {
         driver.manage().deleteAllCookies();
         driver.get(Variables.ONED_URL);
         driver.manage().window().maximize();
         waitForJSToBeLoaded();
-//        waitForVisible(elements.selectedLanguage);
-//        String selectedLanguage = elements.selectedLanguage.getText();
-//        if (!selectedLanguage.equals("English")) {
-//            clickWhenReady(elements.selectLanguageOption);
-//            waitForVisible(elements.languageContainer);
-//            waitForVisible(elements.englishLanguage);
-//            clickWhenReady(elements.englishLanguage);
-//        }
+        waitForVisible(elements.loginTitle);
     }
 
     public void browseOpenPage(String url) {
@@ -652,9 +642,9 @@ public abstract class MainLogic {
         driver.navigate().to(Variables.ONED_URL);
         driver.manage().window().maximize();
         waitForJSToBeLoaded();
-//        if (checkForExistence(elements.loginPaneLocator)) {
-//            login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
-//        }
+        if (checkForExistence(elements.loginTitleLocator)) {
+            login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
+        }
 //        if (!checkForExistence(elements.mailboxTabLocator)) {
 //            reloadWebmail();
 //        }
@@ -667,29 +657,23 @@ public abstract class MainLogic {
      * @param login
      * @param password
      */
-    // TODO: добавить локатор на поля ввода имейла и пассворда
     public void login(String login, String password) {
         browseLoginPage();
         try {
-//            waitForVisible(elements.loginPane);
+            waitForVisible(elements.loginTitle);
         } catch (TimeoutException te) {
             login(login, password);
             te.printStackTrace();
         }
-        /*waitForVisible(elements.emailInput).clear();
+        waitForVisible(elements.emailInput).clear();
         waitForVisible(elements.emailInput).sendKeys(login);
         waitForVisible(elements.passwordInput).clear();
         waitForVisible(elements.passwordInput).sendKeys(password);
         clickWhenReady(elements.loginButton);
         waitForJSToBeLoaded();
-        //close modal with tour email greeting, if presents
-        if (!elements.tourEmailModals.isEmpty()) {
-            clickWhenReady(elements.modalTourEmailCloseButton);
-        }
-        if (checkForExistence(elements.mainCookieSetting)) {
-            clickWhenReady(elements.acceptButton);
-        }
-        makePause(5000);
+
+        // TODO: доделать функионал, дописать локаторы на хом пейдж
+        /*makePause(5000);
         waitForVisible(elements.mailboxTab).isEnabled();
         waitForVisible(elements.calendarTab).isEnabled();
         waitForVisible(elements.taskboxTab).isEnabled();
@@ -697,24 +681,23 @@ public abstract class MainLogic {
         waitForVisible(elements.preferencesTab).isEnabled();
         //close all notifications, if present
         closeAllNotifications();*/
-
     }
 
     /**
      * Performs log out from a system
      */
-    // TODO: добавить локаторы на логаут
     public void logOut() {
         waitForJSToBeLoaded();
         waitForJQueryToBeLoaded();
-//        hoverOverElement(elements.userNavBar);
-//        clickWhenReady(elements.userNavBar);
-//        waitForVisible(elements.logoutLink);
-//        clickWhenReady(elements.logoutLink);
-//        waitForVisible(elements.loginPane);
+        hoverOverElement(elements.userNavBar);
+        waitForVisible(elements.logoutLink);
+        clickWhenReady(elements.logoutLink);
+        waitForVisible(elements.logoutTitle);
+        clickWhenReady(elements.signInLink);
+        waitForVisible(elements.loginTitle);
         driver.manage().deleteAllCookies();
-//        waitForVisible(elements.emailInput);
-//        waitForVisible(elements.passwordInput);
+        waitForVisible(elements.emailInput);
+        waitForVisible(elements.passwordInput);
     }
 
     /**************************************** OPERATIONS WITH ELEMENTS ****************************************/

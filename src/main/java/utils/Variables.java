@@ -76,24 +76,23 @@ public class Variables {
 
     public static final Map<Clusters, String[][]> clusters = createClusters();
 
-    // TODO: добавить URL, логины и пароли на разные этапы!!!
     public static Map<Clusters, String[][]> createClusters() {
         Map<Clusters, String[][]> map = new HashMap<>();
         map.put(Clusters.Stage, new String[][]{
-                {"https://webmail.telushosting.com", "auto1@qatest-849.com", "Temp1234%"},
-                {"https://webmail.telushosting.com", "auto2@qatest-849.com", "Temp1234%"},
-                {"https://webmail.telushosting.com", "auto2@qatest-849.com", "Temp1234%"}
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""}
 
         });
         map.put(Clusters.PreProd, new String[][]{
-                {"http://webmail.hostopia.com", "automation1@steele.hostopia.com", "Temp1234%"},
-                {"http://webmail.hostopia.com", "automation2@steele.hostopia.com", "Temp1234)"},
-                {"http://webmail.hostopia.com", "automation2@steele.hostopia.com", "Temp1234)"}
+                {"https://preprod.deluxe.com/products/secure/myaccount/signin/", "automationined@gmail.com", "Temp1234%"},
+                {"https://preprod.deluxe.com/products/secure/myaccount/signin/", "automationoned@gmail.com", "Temp1234!"},
+                {"https://preprod.deluxe.com/products/secure/myaccount/signin/", "automationoned@gmail.com", "Temp1234!"}
         });
         map.put(Clusters.Prod, new String[][]{
-                {"http://webmail.hostopia.com", "automation1@steele.hostopia.com", "Temp1234%"},
-                {"http://webmail.hostopia.com", "automation2@steele.hostopia.com", "Temp1234)"},
-                {"http://webmail.hostopia.com", "automation2@steele.hostopia.com", "Temp1234)"}
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""}
         });
         return map;
     }
@@ -112,16 +111,18 @@ public class Variables {
     public static final String COLLABORATOR_EMAIL = envSet[1][1];
     public static final String COLLABORATOR_PASSWORD = envSet[1][2];
 
+    public static final String NONEXISTENT_EMAIL = "nonexistemail@gmail.org";
+    public static final String INCORRECT_PASSWORD = "NonExist#123";
+
 
 
     /*********************SOCIAL ACCOUNTS************************************/
 
-    public static final String GMAIL_URL = "https://www.linkedin.com/";
-    public static final String GMAIL_EMAIL = "vsmekhnov25@gmail.com";
+    public static final String GMAIL_EMAIL = "automationoned@gmail.com";
     public static final String GMAIL_PASSWORD = "Temp1234%";
-    public static final String FACEBOOK_URL = "https://www.facebook.com/";
-    public static final String FACEBOOK_EMAIL = "test1936fcsd@gmail.com";
-    public static final String FACEBOOK_PASSWORD = "it8sx989";
+
+    public static final String FACEBOOK_EMAIL = "automationoned@gmail.com";
+    public static final String FACEBOOK_PASSWORD = "Temp1234%";
 
 
 

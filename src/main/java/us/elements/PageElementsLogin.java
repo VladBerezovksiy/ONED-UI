@@ -1,5 +1,6 @@
 package us.elements;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +12,10 @@ public class PageElementsLogin extends BaseElements {
         super(driver);
     }
 
-//    @FindBy(css = "a[ng-click='goToForgotPassword()']")
-//    public WebElement forgotPasswordLink;
+    public By dForgotPasswordLink = By.xpath("//form/a[contains(.,'Forgot password')]");
+
+    @FindBy(xpath = "//form/input[@value='Reset Password']")
+    public WebElement forgotResetButton;
 
 
 }
