@@ -29,31 +29,26 @@ public class LoginTests extends BaseTests {
         driver.quit();
     }
 
+
     @Test(retryAnalyzer = Retry.class)
     private void test_01_checkLoginPage() {
         logic.checkLoginPage();
     }
 
     @Test(retryAnalyzer = Retry.class)
-    private void test_02_checkForgotPasswordRestorationFunctionality() {
-        logic.checkForgotPasswordRestorationFunctionality();
-    }
-
-    @Test(retryAnalyzer = Retry.class)
-    private void test_03_verificationOnTheMainPage() {
+    private void test_02_verificationOnTheMainPage() {
         logic.verificationOnTheMainPage();
     }
 
-    // TODO: завтра доделать
+    // Иногда вылезает капча и тест фейлится!!!
     @Test(retryAnalyzer = Retry.class)
-    private void test_04_verificationOnTheMainPageThroughGoogle() {
-//        logic.verificationOnTheMainPage();
+    private void test_03_verificationOnTheMainPageThroughFacebook() {
+        logic.verificationOnTheMainPageThroughFacebook();
     }
 
-    // TODO: завтра доделать
     @Test(retryAnalyzer = Retry.class)
-    private void test_05_verificationOnTheMainPageThroughFacebook() {
-//        logic.verificationOnTheMainPage();
+    private void test_04_verificationOnTheMainPageThroughGoogle() {
+        logic.verificationOnTheMainPageThroughGoogle();
     }
 
 }

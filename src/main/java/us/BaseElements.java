@@ -52,11 +52,55 @@ public class BaseElements {
     @FindBy(xpath = "//a[text()='Sign in']")
     public WebElement signInLink;
 
-    /********************************************TOP NAVIGATION BAR*********************************************/
+    @FindBy(xpath = "//button[@type='submit'][2]")
+    public WebElement allowConditionsButtonFacebook;
+
+    @FindBy(id = "email")
+    public WebElement emailInputFacebook;
+
+    @FindBy(id = "pass")
+    public WebElement passwordInputFacebook;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement logInButtonFacebook;
+
+    @FindBy(id = "identifierId")
+    public WebElement emailInputGoogle;
+
+    @FindBy(xpath = "//input[@type='password']")
+    public WebElement passwordInputGoogle;
+
+
+
+    /********************************************TOP NAVIGATION TAB*********************************************/
 
     @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
-    public WebElement userNavBar;
+    public WebElement userTab;
+
+    @FindBy(css = "a.cart")
+    public WebElement cartTab;
 
     @FindBy(id = "top-nav-sign-out")
     public WebElement logoutLink;
+
+
+
+    /********************************************NAVIGATION MENU************************************************/
+
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(.,'All Products')]")
+    public WebElement allProductsNavBar;
+
+    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    public WebElement promotionalProductsNavBar;
+
+    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    public WebElement printMarketingNavBar;
+
+    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    public WebElement eventsNavBar;
+
+    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    public WebElement industryNavBar;
+
+
 }

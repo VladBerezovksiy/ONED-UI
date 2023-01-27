@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static utils.Variables.LONG_SLEEP;
 import static utils.Variables.SHORT_SLEEP;
 
 public abstract class MainLogic {
@@ -671,16 +670,9 @@ public abstract class MainLogic {
         waitForVisible(elements.passwordInput).sendKeys(password);
         clickWhenReady(elements.loginButton);
         waitForJSToBeLoaded();
-
-        // TODO: доделать функионал, дописать локаторы на хом пейдж
-        /*makePause(5000);
-        waitForVisible(elements.mailboxTab).isEnabled();
-        waitForVisible(elements.calendarTab).isEnabled();
-        waitForVisible(elements.taskboxTab).isEnabled();
-        waitForVisible(elements.contactsTab).isEnabled();
-        waitForVisible(elements.preferencesTab).isEnabled();
-        //close all notifications, if present
-        closeAllNotifications();*/
+        hoverOverElement(elements.userTab);
+        waitForVisible(elements.logoutLink);
+        hoverOverElement(elements.cartTab);
     }
 
     /**
@@ -689,7 +681,7 @@ public abstract class MainLogic {
     public void logOut() {
         waitForJSToBeLoaded();
         waitForJQueryToBeLoaded();
-        hoverOverElement(elements.userNavBar);
+        hoverOverElement(elements.userTab);
         waitForVisible(elements.logoutLink);
         clickWhenReady(elements.logoutLink);
         waitForVisible(elements.logoutTitle);

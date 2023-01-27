@@ -6,17 +6,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import us.BaseElements;
 import us.MainLogic;
-import utils.DriverInstances;
-import utils.Retry;
-import utils.Variables;
-import utils.WebDriverWaitHelper;
+import utils.*;
 
 public class LogoutLoginTests extends BaseTests {
     private MainLogic logic;
 
     @BeforeClass
     private void beforeClass() {
-        driver = DriverInstances.getInstance(Variables.GOOGLE_CHROME);
+        driver = DriverInstances.getInstance(Settings.DRIVER);
         WebDriverWait wait = WebDriverWaitHelper.generateWaits(driver, 5, 30, 3);
         BaseElements elements = new BaseElements(driver);
         logic = new MainLogic(driver, wait, elements) {
@@ -36,6 +33,7 @@ public class LogoutLoginTests extends BaseTests {
     private void tearDown() {
         driver.quit();
     }
+
 
     @Test(retryAnalyzer = Retry.class)
     private void logoutLogin() {
