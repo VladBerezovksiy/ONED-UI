@@ -87,19 +87,19 @@ public class BaseElements {
 
     /********************************************NAVIGATION MENU************************************************/
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(.,'All Products')]")
+    @FindBy(xpath = "//a[contains(.,'All Products')]/ancestor::li[@class='dropdown']")
     public WebElement allProductsNavBar;
 
-    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    @FindBy(xpath = "//*[@id=\"wrapper\"]/header/div[1]/div[4]/nav[2]/div/ul/li[2]/div[1]/a")
     public WebElement promotionalProductsNavBar;
 
-    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    @FindBy(xpath = "//*[@id=\"wrapper\"]/header/div[1]/div[4]/nav[2]/div/ul/li[3]/div[1]/a")
     public WebElement printMarketingNavBar;
 
-    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    @FindBy(xpath = "//a[contains(.,'Events')]/ancestor::li[@class='dropdown']")
     public WebElement eventsNavBar;
 
-    @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
+    @FindBy(xpath = "//a[contains(.,'Industry')]/ancestor::li[@class='dropdown']")
     public WebElement industryNavBar;
 
 

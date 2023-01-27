@@ -18,14 +18,6 @@ public class LoginPageTestLogic extends MainLogic {
         this.elements = elements;
     }
 
-    /************** MAKE IT TO BE CONSTRUCTOR (problems with waits) ***********************/
-
-    public void setElements(PageElementsLogin elements) {
-        this.elements = elements;
-    }
-
-    /*************************************************************************************/
-
     @Override
     public void getRootPage() {
         browseLoginPage();
@@ -35,6 +27,8 @@ public class LoginPageTestLogic extends MainLogic {
     public void backToRootPage() {
         browseLoginPage();
     }
+
+
 
     public void incorrectCredentialsLogin() {
         waitForVisible(elements.loginTitle);
