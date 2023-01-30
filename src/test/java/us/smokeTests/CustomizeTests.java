@@ -1,11 +1,10 @@
-package smokeTests;
+package us.smokeTests;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import us.elements.PageElementsCustomize;
-import us.elements.PageElementsLogin;
 import us.logic.CustomizePageLogic;
 import utils.DriverInstances;
 import utils.Retry;

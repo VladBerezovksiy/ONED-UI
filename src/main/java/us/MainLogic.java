@@ -470,7 +470,7 @@ public abstract class MainLogic {
         waitForInvisibilityOfModal();
     }
 
-    // TODO: написать локатор на вывод ошибки в модальном окне (по необходимости)
+    // TODO: написать локатор на подтверждение модального окна (по необходимости)
     public void confirmModalGeneral() {
 //        waitForVisible(elements.modal);
 //        clickWhenReady(elements.deleteModal);
@@ -493,7 +493,6 @@ public abstract class MainLogic {
 
 
     public String sikuliPatternSelectorOS() {
-        // TODO: пересмотреть первые две строчки
 //        String versionOS = System.getProperty("os.name");
         String versionOS = Settings.OS.toString();
         String sikuliPattern = null;
@@ -635,7 +634,6 @@ public abstract class MainLogic {
      * A recursive method that provides an overall safe reload of a Webmail
      * and does login if user was logged out
      */
-    // TODO: добавить локатор на поля ввода имейла и пассворда
     public void reloadWebmail() {
         makePause(Variables.NORMAL_SLEEP);
         driver.navigate().to(Variables.ONED_URL);
@@ -644,9 +642,10 @@ public abstract class MainLogic {
         if (checkForExistence(elements.loginTitleLocator)) {
             login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
         }
-//        if (!checkForExistence(elements.mailboxTabLocator)) {
-//            reloadWebmail();
-//        }
+        hoverOverElement(elements.userTab);
+        if (!checkForExistence(elements.logoutLinkLocator)) {
+            reloadWebmail();
+        }
     }
 
     /**
@@ -672,6 +671,7 @@ public abstract class MainLogic {
         waitForJSToBeLoaded();
         hoverOverElement(elements.userTab);
         waitForVisible(elements.logoutLink);
+        closeAllNotifications();
         hoverOverElement(elements.cartTab);
     }
 
@@ -788,11 +788,10 @@ public abstract class MainLogic {
     /**
      * Closes all notifications if they are present on a page
      */
-    // TODO: добавить локатор на нотификации (по необходимости)
     public void closeAllNotifications() {
-//        while (!elements.notifications.isEmpty()) {
-//            clickWhenReady(elements.notificationCloseButton);
-//        }
+        for (int i = 0; i < elements.notifications.size(); i++) {
+            clickWhenReady(elements.notificationsAccept);
+        }
     }
 
     /**

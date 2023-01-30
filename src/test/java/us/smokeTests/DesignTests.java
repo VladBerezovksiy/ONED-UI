@@ -1,27 +1,26 @@
-package smokeTests;
+package us.smokeTests;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import us.elements.PageElementsConfigurator;
-import us.elements.PageElementsLogin;
-import us.logic.ConfiguratorPageLogic;
+import us.elements.PageElementsDesign;
+import us.logic.DesignPageLogic;
 import utils.DriverInstances;
 import utils.Retry;
 import utils.Settings;
 import utils.WebDriverWaitHelper;
 
-public class ConfiguratorTests extends BaseTests {
+public class DesignTests extends BaseTests {
 
-    private ConfiguratorPageLogic logic;
+    private DesignPageLogic logic;
 
     @BeforeClass
     private void beforeClass(){
         driver = DriverInstances.getInstance(Settings.DRIVER);
         WebDriverWait wait = WebDriverWaitHelper.generateWaits(driver, 5, 30, 3);
-        PageElementsConfigurator elements = new PageElementsConfigurator(driver);
-        logic = new ConfiguratorPageLogic(driver, wait, elements);
+        PageElementsDesign elements = new PageElementsDesign(driver);
+        logic = new DesignPageLogic(driver, wait, elements);
         logic.getRootPage();
     }
 
@@ -31,8 +30,8 @@ public class ConfiguratorTests extends BaseTests {
     }
 
 
-    @Test(retryAnalyzer = Retry.class)
-    private void test_01_checkConfiguratorPage() {
-//        logic.checkLoginPage();
+    @Test/*(retryAnalyzer = Retry.class)*/
+    private void test_01_checkDesignPage() {
+        logic.verifyDesignPage();
     }
 }

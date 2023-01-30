@@ -43,8 +43,8 @@ public class Variables {
 
     /***** SIKULI PATTERNS *****/
 
-    public static final String WINDOWS_10_NAME = "Windows 10";
-    public static final String WINDOWS_7_NAME = "Windows 7";
+    public static final String WINDOWS_10_NAME = "WIN10";
+    public static final String WINDOWS_7_NAME = "WIN7";
 
     public static final String KEEP_FILE = "keep_file.png";
     public static final String UPLOAD_INPUT = "upload_input.png";
@@ -52,8 +52,12 @@ public class Variables {
     public static final String UPLOAD_CANCEL = "upload_cancel.png";
     public static final String WINDOWS_CLOSE = "windows_close.png";
 
+    public static final String ADD_ARTWORK_BUTTON = "addArtwork_button.png";
+    public static final String ADD_CLIPART_BUTTON = "addClipart_button.png";
+    public static final String ADD_TEXT_BUTTON = "addText_button.png";
 
-    /******** FILES EXTENSTIONS ******/
+
+    /******** FILES EXTENSIONS ******/
 
     public static final String FILE_ZIP = ".zip";
     public static final String FILE_EML = ".eml";
@@ -110,6 +114,9 @@ public class Variables {
 
     public static final String NONEXISTENT_EMAIL = "nonexistemail@gmail.org";
     public static final String INCORRECT_PASSWORD = "NonExist#123";
+
+
+    public static final String IMAGE_PATH = "file.jpg";
 
 
     /*********************SOCIAL ACCOUNTS************************************/

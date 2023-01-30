@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class BaseElements {
 
     /**
@@ -83,6 +85,8 @@ public class BaseElements {
     @FindBy(id = "top-nav-sign-out")
     public WebElement logoutLink;
 
+    public By logoutLinkLocator = By.id("top-nav-sign-out");
+
 
 
     /********************************************NAVIGATION MENU************************************************/
@@ -103,4 +107,11 @@ public class BaseElements {
     public WebElement industryNavBar;
 
 
+    /********************************************NOTIFICATION************************************************/
+
+    @FindBy(id = "onetrust-banner-sdk")
+    public List<WebElement> notifications;
+
+    @FindBy(id = "onetrust-accept-btn-handler")
+    public WebElement notificationsAccept;
 }
