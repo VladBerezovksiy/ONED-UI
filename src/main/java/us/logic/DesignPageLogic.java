@@ -46,25 +46,31 @@ public class DesignPageLogic extends MainLogic {
         waitForVisible(elements.designButton);
         clickWhenReady(elements.designButton);
         waitForJSToBeLoaded();
+    }
+
+    public void checkArtworkGeneral() {
         clickWithSikuli(Variables.ADD_ARTWORK_BUTTON);
         waitForJSToBeLoaded();
-    }
-
-    private void fillArtworkGeneral() {
-        // TODO почему то фейлится!!
         clickWhenReady(elements.uploadImageInAddArtworkSection);
-        makePause(1500);
+        makePause(1000);
         uploadFile(Variables.PROJECT_UPLOAD_TEST_PATH + Variables.IMAGE_PATH);
         makePause(5000);
+        waitForJSToBeLoaded();
+
+        // TODO: дописать код на то что картинка действительно добавилась
     }
 
-    private void fillClipartGeneral() {
-//        clickWhenReady(elements.uploadImageInAddArtworkSection);
+    private void checkClipartGeneral() {
+        clickWithSikuli(Variables.ADD_CLIPART_BUTTON);
+        waitForJSToBeLoaded();
+
         // TODO: завтра доделать
     }
 
-    private void fillTextGeneral() {
-//        clickWhenReady(elements.uploadImageInAddArtworkSection);
+    private void checkTextGeneral() {
+        clickWithSikuli(Variables.ADD_TEXT_BUTTON);
+        waitForJSToBeLoaded();
+
         // TODO: завтра доделать
     }
 
@@ -72,6 +78,6 @@ public class DesignPageLogic extends MainLogic {
         login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
         openProductPage();
         openDesignSectionGeneral();
-        fillArtworkGeneral();
     }
+
 }

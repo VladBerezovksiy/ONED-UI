@@ -17,12 +17,10 @@ public class PageElementsDesign extends BaseElements {
     public WebElement apparelOptionInPromotionalSection;
 
 
-
     /***************************************APPAREL MENU***************************************/
 
     @FindBy(xpath = "//div[@class='leftNavScrollContainer']//a[contains(.,'T-Shirts')]")
     public WebElement tShirtOptionInApparelSection;
-
 
 
     /****************************************T-SHIRT PRODUCT LIST***************************************/
@@ -31,16 +29,20 @@ public class PageElementsDesign extends BaseElements {
     public WebElement productInTshirtSection;
 
 
-
     /****************************************ELEMENTS IN PRODUCT CARD***************************************/
 
     @FindBy(css = ".js-add-to-designer")
     public WebElement designButton;
 
 
-
     /****************************************ELEMENTS IN DESIGN PAGE***************************************/
 
     @FindBy(id = "formUpload")
     public WebElement uploadImageInAddArtworkSection;
+
+    @FindBy(xpath = "//div[@id='bootboxBody']/ancestor::div[@class='modal-content']")
+    public WebElement modalWindow;
+
+    @FindBy(xpath = "//div[@id='bootboxBody']/ancestor::div[@class='modal-dialog modal-sm']//button[@*='confirm']")
+    public WebElement modalConfirmButton;
 }

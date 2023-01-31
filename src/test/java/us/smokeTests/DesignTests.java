@@ -30,8 +30,23 @@ public class DesignTests extends BaseTests {
     }
 
 
-    @Test/*(retryAnalyzer = Retry.class)*/
+    @Test(retryAnalyzer = Retry.class)
     private void test_01_checkDesignPage() {
         logic.verifyDesignPage();
+    }
+
+    @Test/*(retryAnalyzer = Retry.class)*/
+    private void test_02_addArtwork() {
+        logic.checkArtworkGeneral();
+    }
+
+    @Test/*(retryAnalyzer = Retry.class)*/
+    private void test_03_addClipart() {
+//        logic.checkArtworkGeneral();
+    }
+
+    @Test/*(retryAnalyzer = Retry.class)*/
+    private void test_04_addText() {
+//        logic.checkArtworkGeneral();
     }
 }

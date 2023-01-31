@@ -248,13 +248,6 @@ public abstract class MainLogic {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(elementLocator));
     }
 
-    /**
-     * Waits until modal window is invisible
-     */
-    // TODO: добавить локатор на модальное окно (если необходимо)
-    public void waitForInvisibilityOfModal() {
-//        waitForInvisibilityOfElementLocated(elements.modalLocator);
-    }
 
     /**
      * Waits until web-element will be reloaded on a page,
@@ -467,14 +460,7 @@ public abstract class MainLogic {
     public void checkModalErrorGeneral() {
 //        waitForVisible(elements.modal);
 //        clickWhenReady(elements.modalCloseButton);
-        waitForInvisibilityOfModal();
-    }
-
-    // TODO: написать локатор на подтверждение модального окна (по необходимости)
-    public void confirmModalGeneral() {
-//        waitForVisible(elements.modal);
-//        clickWhenReady(elements.deleteModal);
-        waitForInvisibilityOfModal();
+//        waitForInvisibilityOfModal();
     }
 
 
@@ -493,8 +479,7 @@ public abstract class MainLogic {
 
 
     public String sikuliPatternSelectorOS() {
-//        String versionOS = System.getProperty("os.name");
-        String versionOS = Settings.OS.toString();
+        String versionOS = System.getProperty("os.name");
         String sikuliPattern = null;
         if (versionOS.equals(Variables.WINDOWS_10_NAME)) {
             sikuliPattern = Variables.PROJECT_SIKULI_PATTERNS_WIN10;
@@ -519,7 +504,7 @@ public abstract class MainLogic {
             s.type(uploadInput, path);
             s.click(uploadButton);
         } catch (FindFailed ex) {
-            throw new java.util.NoSuchElementException(ex.getMessage());
+            throw new NoSuchElementException(ex.getMessage());
         }
     }
 
