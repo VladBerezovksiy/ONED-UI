@@ -48,7 +48,31 @@ public class DesignPageLogic extends MainLogic {
         waitForJSToBeLoaded();
     }
 
+    public void verifyDesignPage() {
+        login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
+        openProductPage();
+        openDesignSectionGeneral();
+    }
+
     public void checkArtworkGeneral() {
+        addArtworkInProduct();
+        deleteLogoInProduct();
+        addArtworkInProduct();
+    }
+
+    public void checkClipartGeneral() {
+        addClipartInProduct();
+        deleteLogoInProduct();
+        addClipartInProduct();
+    }
+
+    public void checkTextGeneral() {
+        addTextInProduct();
+        deleteLogoInProduct();
+        addTextInProduct();
+    }
+
+    private void addArtworkInProduct() {
         clickWithSikuli(Variables.ADD_ARTWORK_BUTTON);
         waitForJSToBeLoaded();
         clickWhenReady(elements.uploadImageInAddArtworkSection);
@@ -56,28 +80,48 @@ public class DesignPageLogic extends MainLogic {
         uploadFile(Variables.PROJECT_UPLOAD_TEST_PATH + Variables.IMAGE_PATH);
         makePause(5000);
         waitForJSToBeLoaded();
-
-        // TODO: дописать код на то что картинка действительно добавилась
+        waitForVisible(elements.logoInProduct);
+        clickWhenReady(elements.logoInProduct);
+        makePause(1500);
     }
 
-    private void checkClipartGeneral() {
+    private void addClipartInProduct() {
         clickWithSikuli(Variables.ADD_CLIPART_BUTTON);
+        makePause(1500);
         waitForJSToBeLoaded();
-
-        // TODO: завтра доделать
+        if (isElementPresent(elements.breadcrumbPathLocator)) {
+            waitForVisible(elements.officeLogo);
+            clickWhenReady(elements.officeLogo);
+        } else {
+            waitForVisible(elements.officeSectionLink);
+            clickWhenReady(elements.officeSectionLink);
+            waitForVisible(elements.officeLogo);
+            clickWhenReady(elements.officeLogo);
+        }
+        makePause(1000);
+        waitForJSToBeLoaded();
+        waitForVisible(elements.logoInProduct);
+        clickWhenReady(elements.logoInProduct);
+        makePause(1500);
     }
 
-    private void checkTextGeneral() {
+    private void addTextInProduct() {
         clickWithSikuli(Variables.ADD_TEXT_BUTTON);
+        makePause(1000);
         waitForJSToBeLoaded();
-
-        // TODO: завтра доделать
     }
 
-    public void verifyDesignPage() {
-        login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
-        openProductPage();
-        openDesignSectionGeneral();
+    private void deleteLogoInProduct() {
+//        waitForVisible(elements.logoInProduct);
+//        clickWhenReady(elements.logoInProduct);
+//        makePause(1500);
+        clickWithSikuli(Variables.DELETE_ICON);
+        makePause(1500);
+        waitForVisible(elements.modalWindow);
+        waitForInvisible(elements.addToCartButton);
+        clickWhenReady(elements.modalConfirmButton);
+        makePause(1500);
+        waitForVisible(elements.addToCartButton);
     }
 
 }

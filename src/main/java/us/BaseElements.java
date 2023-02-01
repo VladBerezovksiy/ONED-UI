@@ -82,6 +82,9 @@ public class BaseElements {
     @FindBy(css = "a.cart")
     public WebElement cartTab;
 
+    @FindBy(css = "#top-nav-total-items-count")
+    public WebElement cartIndexTab;
+
     @FindBy(id = "top-nav-sign-out")
     public WebElement logoutLink;
 
@@ -114,4 +117,23 @@ public class BaseElements {
 
     @FindBy(id = "onetrust-accept-btn-handler")
     public WebElement notificationsAccept;
+
+
+
+    /********************************************ELEMENTS IN CART PAGE****************************************/
+
+    @FindBy(css = ".removeDetailBtn")
+    public List<WebElement> removeButtonInCart;
+
+    @FindBy(xpath = "//div[@id='bootboxBody']/ancestor::div[@class='modal-content']")
+    public WebElement modalWindow;
+
+    @FindBy(xpath = "//div[@id='bootboxBody']/ancestor::div[@class='modal-dialog modal-sm']//button[@*='confirm']")
+    public WebElement modalConfirmButton;
+
+    public By checkoutButtonInCartLocator = By.xpath("//*[@id=\"cart_hasitemstop\"]//a");
+
+    @FindBy(xpath = "//*[@id=\"cart_hasitemstop\"]//a")
+    public WebElement checkoutButtonInCart;
+
 }
