@@ -57,9 +57,6 @@ public class Variables {
     public static final String ADD_TEXT_BUTTON = "addText_button.png";
 
 
-    public static final String DELETE_ICON = "delete_icon.png";
-
-
 
 
     /******** FILES EXTENSIONS ******/

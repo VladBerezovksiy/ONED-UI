@@ -73,7 +73,6 @@ public class BaseElements {
     public WebElement passwordInputGoogle;
 
 
-
     /********************************************TOP NAVIGATION TAB*********************************************/
 
     @FindBy(xpath = "//ul/li[@class='dropdown account-menu-item']")
@@ -89,7 +88,6 @@ public class BaseElements {
     public WebElement logoutLink;
 
     public By logoutLinkLocator = By.id("top-nav-sign-out");
-
 
 
     /********************************************NAVIGATION MENU************************************************/
@@ -119,8 +117,10 @@ public class BaseElements {
     public WebElement notificationsAccept;
 
 
-
     /********************************************ELEMENTS IN CART PAGE****************************************/
+
+    @FindBy(xpath = "//h1[contains(.,'Your Shopping Cart')]")
+    public WebElement cartTitle;
 
     @FindBy(css = ".removeDetailBtn")
     public List<WebElement> removeButtonInCart;
@@ -135,5 +135,21 @@ public class BaseElements {
 
     @FindBy(xpath = "//*[@id=\"cart_hasitemstop\"]//a")
     public WebElement checkoutButtonInCart;
+
+    @FindBy(css = ".thumbnail-container img")
+    public List<WebElement> imageContainer;
+
+
+
+    /****************************************ELEMENTS IN PRODUCT CARD***************************************/
+
+    public By designButtonLocator = By.cssSelector(".js-add-to-designer");
+
+    @FindBy(css = ".js-add-to-designer")
+    public WebElement designButton;
+
+    @FindBy(xpath = "//h1")
+    public WebElement productTitle;
+
 
 }

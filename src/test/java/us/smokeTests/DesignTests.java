@@ -21,7 +21,6 @@ public class DesignTests extends BaseTests {
 
     @AfterClass
     private void tearDown() {
-        // TODO подумать по поводу перемещения метода чистки корзины
 //        logic.clearCart();
         driver.quit();
     }
@@ -33,17 +32,22 @@ public class DesignTests extends BaseTests {
     }
 
     @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_02_checkAddArtworkFunctionality() {
+    private void test_02_checkProductWithoutMaterialFunctionality() {
+        logic.checkEmptyGeneral();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
+    private void test_03_checkAddArtworkFunctionality() {
         logic.checkArtworkGeneral();
     }
 
     @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_03_checkAddClipartFunctionality() {
+    private void test_04_checkAddClipartFunctionality() {
         logic.checkClipartGeneral();
     }
 
     @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_04_checkAddTextFunctionality() {
+    private void test_05_checkAddTextFunctionality() {
         logic.checkTextGeneral();
     }
 
@@ -51,17 +55,17 @@ public class DesignTests extends BaseTests {
 
 
     @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_05_checkoutProductWithArtwork() {
+    private void test_06_checkoutProductWithArtwork() {
 //        logic.checkTextGeneral();
     }
 
     @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_06_checkoutProductWithClipart() {
+    private void test_07_checkoutProductWithClipart() {
 //        logic.checkTextGeneral();
     }
 
     @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_07_checkoutProductWithText() {
+    private void test_08_checkoutProductWithText() {
 //        logic.checkTextGeneral();
     }
 }

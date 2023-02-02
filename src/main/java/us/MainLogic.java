@@ -680,9 +680,11 @@ public abstract class MainLogic {
     public void clearCart() {
         waitForVisible(elements.cartTab);
         if (!elements.cartIndexTab.getText().trim().equals("")) {
-            clickWhenReady(elements.cartTab);
-            makePause(1500);
-            waitForJSToBeLoaded();
+            if (!driver.getCurrentUrl().contains("/cart/")) {
+                clickWhenReady(elements.cartTab);
+                makePause(1500);
+                waitForJSToBeLoaded();
+            }
             for (int i = 0; i < elements.removeButtonInCart.size(); i++) {
                 waitForVisible(elements.removeButtonInCart.get(i));
                 clickWhenReady(elements.removeButtonInCart.get(i));

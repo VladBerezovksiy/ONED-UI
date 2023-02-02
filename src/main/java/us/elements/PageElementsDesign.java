@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import us.BaseElements;
 
+import java.util.List;
+
 public class PageElementsDesign extends BaseElements {
 
     public PageElementsDesign(WebDriver driver) {
@@ -26,14 +28,8 @@ public class PageElementsDesign extends BaseElements {
 
     /****************************************T-SHIRT PRODUCT LIST***************************************/
 
-    @FindBy(xpath = "//a[contains(.,\"Next Level Men's CVC Crew Neck Tee\")]/ancestor::section//a")
-    public WebElement productInTshirtSection;
-
-
-    /****************************************ELEMENTS IN PRODUCT CARD***************************************/
-
-    @FindBy(css = ".js-add-to-designer")
-    public WebElement designButton;
+    @FindBy(xpath = "//section//h2/a")
+    public List<WebElement> productCartInTshirtSection;
 
 
     /****************************************ELEMENTS IN ARTWORK SECTION***************************************/
@@ -68,6 +64,18 @@ public class PageElementsDesign extends BaseElements {
 
     @FindBy(xpath = "//*[@id=\"form-designer\"]//button[@type='submit']")
     public WebElement addToCartButton;
+
+    @FindBy(id = "quantity")
+    public WebElement qtyInDesignPage;
+
+    @FindBy(xpath = "//strong[text()='Sizes']/ancestor::li//div[2]//input[2]")
+    public WebElement sizeInputField;
+
+    @FindBy(xpath = "//strong[text()='Imprint Color']/ancestor::li/textarea")
+    public WebElement imprintColorInputField;
+
+    @FindBy(xpath = "//button[@title='Trash']")
+    public WebElement removeButtonInPanel;
 
 
 }
