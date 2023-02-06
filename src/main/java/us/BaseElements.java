@@ -117,7 +117,7 @@ public class BaseElements {
     public WebElement notificationsAccept;
 
 
-    /********************************************ELEMENTS IN CART PAGE****************************************/
+    /********************************************ELEMENTS IN CART****************************************/
 
     @FindBy(xpath = "//h1[contains(.,'Your Shopping Cart')]")
     public WebElement cartTitle;
@@ -138,18 +138,4 @@ public class BaseElements {
 
     @FindBy(css = ".thumbnail-container img")
     public List<WebElement> imageContainer;
-
-
-
-    /****************************************ELEMENTS IN PRODUCT CARD***************************************/
-
-    public By designButtonLocator = By.cssSelector(".js-add-to-designer");
-
-    @FindBy(css = ".js-add-to-designer")
-    public WebElement designButton;
-
-    @FindBy(xpath = "//h1")
-    public WebElement productTitle;
-
-
 }

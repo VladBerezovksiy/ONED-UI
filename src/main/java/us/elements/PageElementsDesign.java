@@ -4,50 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import us.BaseElements;
 
-import java.util.List;
-
-public class PageElementsDesign extends BaseElements {
+public class PageElementsDesign extends PageElementsProduct {
 
     public PageElementsDesign(WebDriver driver) {
         super(driver);
     }
-
-    /***************************************PROMOTIONAL PRODUCTS MENU***************************************/
-
-    @FindBy(xpath = "//ul[@id='menu']//li[@class='ui-menu-item']/a[contains(.,'Apparel')]")
-    public WebElement apparelOptionInPromotionalSection;
-
-
-    /***************************************APPAREL MENU***************************************/
-
-    @FindBy(xpath = "//div[@class='leftNavScrollContainer']//a[contains(.,'T-Shirts')]")
-    public WebElement tShirtOptionInApparelSection;
-
-
-    /****************************************T-SHIRT PRODUCT LIST***************************************/
-
-    @FindBy(xpath = "//section//h2/a")
-    public List<WebElement> productCartInTshirtSection;
-
-
-    /****************************************ELEMENTS IN ARTWORK SECTION***************************************/
-
-    @FindBy(id = "formUpload")
-    public WebElement uploadImageInAddArtworkSection;
-
-
-
-    /****************************************ELEMENTS IN CLIPART SECTION***************************************/
-
-    public By breadcrumbPathLocator = By.xpath("//*[@id=\"clipart_container\"]/ol[@class='breadcrumb']/li[2]");
-
-    @FindBy(xpath = "//*[@id=\"clipart_container\"]/div[2]/div[2]/a")
-    public WebElement officeSectionLink;
-
-    @FindBy(xpath = "//*[@id=\"clipart_container\"]//img")
-    public WebElement officeLogo;
 
 
 
@@ -78,4 +40,28 @@ public class PageElementsDesign extends BaseElements {
     public WebElement removeButtonInPanel;
 
 
+
+    /****************************************ELEMENTS IN ARTWORK SECTION***************************************/
+
+    @FindBy(id = "formUpload")
+    public WebElement uploadImageInAddArtworkSection;
+
+
+
+    /****************************************ELEMENTS IN CLIPART SECTION***************************************/
+
+    public By breadcrumbPathLocator = By.xpath("//*[@id=\"clipart_container\"]/ol[@class='breadcrumb']/li[2]");
+
+    @FindBy(xpath = "//*[@id=\"clipart_container\"]/div[2]/div[2]/a")
+    public WebElement officeSectionLink;
+
+    @FindBy(xpath = "//*[@id=\"clipart_container\"]//img")
+    public WebElement officeLogo;
+
+
+
+    /****************************************ELEMENTS IN TEXT SECTION***************************************/
+
+    @FindBy(id = "ihd-textarea_1")
+    public WebElement textInputField;
 }

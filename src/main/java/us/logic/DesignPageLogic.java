@@ -1,14 +1,11 @@
 package us.logic;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import us.MainLogic;
 import us.elements.PageElementsDesign;
 import utils.Variables;
 
-public class DesignPageLogic extends MainLogic {
+public class DesignPageLogic extends ProductPageLogic {
 
     private PageElementsDesign elements;
 
@@ -28,35 +25,6 @@ public class DesignPageLogic extends MainLogic {
     }
 
 
-    /*private String getTextGeneral(WebElement element) {
-        String text = null;
-        text = element.getText().toUpperCase();
-        return text;
-    }*/
-
-    private void openProductPage() {
-        clickWhenReady(elements.promotionalProductsNavBar);
-        waitForJSToBeLoaded();
-        waitForVisible(elements.apparelOptionInPromotionalSection);
-        clickWhenReady(elements.apparelOptionInPromotionalSection);
-        waitForJSToBeLoaded();
-        waitForVisible(elements.tShirtOptionInApparelSection);
-        clickWhenReady(elements.tShirtOptionInApparelSection);
-        waitForJSToBeLoaded();
-
-        for (int i = 0; i < elements.productCartInTshirtSection.size(); i++) {
-            waitForVisible(elements.productCartInTshirtSection.get(i));
-            clickWhenReady(elements.productCartInTshirtSection.get(i));
-            makePause(1500);
-            waitForJSToBeLoaded();
-            if (!isElementPresent(elements.designButtonLocator)) {
-                driver.navigate().back();
-            }
-        }
-        waitForJSToBeLoaded();
-        ;
-    }
-
     private void openDesignSectionGeneral() {
         waitForVisible(elements.designButton);
         clickWhenReady(elements.designButton);
@@ -65,8 +33,7 @@ public class DesignPageLogic extends MainLogic {
 
     public void verifyDesignPage() {
         login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
-        openProductPage();
-//        String productName = getTextGeneral(elements.productTitle);
+        openProductPageForDesignSection();
         openDesignSectionGeneral();
     }
 
@@ -79,7 +46,6 @@ public class DesignPageLogic extends MainLogic {
         deleteLogoInProduct();
         addArtworkInProduct();
         enterValidValuesToFollowCheckout();
-        verifyMaterialIsAddedInCheckout();
     }
 
     public void checkClipartGeneral() {
@@ -133,6 +99,8 @@ public class DesignPageLogic extends MainLogic {
         clickWithSikuli(Variables.ADD_TEXT_BUTTON);
         makePause(1000);
         waitForJSToBeLoaded();
+        waitForVisible(elements.textInputField).clear();
+        clickWhenReady(elements.textInputField).sendKeys("QA_TEST");
     }
 
     private void enterValidValuesToFollowCheckout() {
@@ -157,10 +125,6 @@ public class DesignPageLogic extends MainLogic {
         clickWhenReady(elements.modalConfirmButton);
         makePause(1500);
         waitForVisible(elements.addToCartButton);
-    }
-
-    private void verifyMaterialIsAddedInCheckout() {
-        Assert.assertTrue(elements.imageContainer.size() > 1, "Material is not added!");
     }
 
 }

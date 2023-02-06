@@ -11,12 +11,12 @@ import utils.Retry;
 import utils.Settings;
 import utils.WebDriverWaitHelper;
 
-public class CustomizeTests extends BaseTests{
+public class CustomizeTests extends BaseTests {
 
     private CustomizePageLogic logic;
 
     @BeforeClass
-    private void beforeClass(){
+    private void beforeClass() {
         driver = DriverInstances.getInstance(Settings.DRIVER);
         WebDriverWait wait = WebDriverWaitHelper.generateWaits(driver, 5, 30, 3);
         PageElementsCustomize elements = new PageElementsCustomize(driver);
@@ -26,12 +26,33 @@ public class CustomizeTests extends BaseTests{
 
     @AfterClass
     private void tearDown() {
+//        logic.clearCart();
         driver.quit();
     }
 
 
     @Test(retryAnalyzer = Retry.class)
     private void test_01_checkCustomizePage() {
-//        logic.checkLoginPage();
+        logic.verifyCustomizePage();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
+    private void test_02_checkProductWithoutMaterialFunctionality() {
+        logic.checkEmptyGeneral();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
+    private void test_03_checkAddArtworkFunctionality() {
+        logic.checkArtworkGeneral();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
+    private void test_04_checkAddClipartFunctionality() {
+        logic.checkClipartGeneral();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
+    private void test_05_checkAddTextFunctionality() {
+        logic.checkTextGeneral();
     }
 }

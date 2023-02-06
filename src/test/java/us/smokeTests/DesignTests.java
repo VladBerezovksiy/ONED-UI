@@ -51,21 +51,4 @@ public class DesignTests extends BaseTests {
         logic.checkTextGeneral();
     }
 
-
-
-
-    @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_06_checkoutProductWithArtwork() {
-//        logic.checkTextGeneral();
-    }
-
-    @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_07_checkoutProductWithClipart() {
-//        logic.checkTextGeneral();
-    }
-
-    @Test(dependsOnMethods = {"test_01_checkDesignPage"}, retryAnalyzer = Retry.class)
-    private void test_08_checkoutProductWithText() {
-//        logic.checkTextGeneral();
-    }
 }
