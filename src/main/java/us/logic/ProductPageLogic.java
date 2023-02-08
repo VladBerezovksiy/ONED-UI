@@ -68,4 +68,23 @@ public class ProductPageLogic extends MainLogic {
         }
         waitForJSToBeLoaded();
     }
+
+    public void openProductPageForConfiguratorSection() {
+        clickWhenReady(elements.printMarketingNavBar);
+        waitForJSToBeLoaded();
+        waitForVisible(elements.businessCardsOptionInPromotionalSection);
+        clickWhenReady(elements.businessCardsOptionInPromotionalSection);
+        waitForJSToBeLoaded();
+
+        for (int i = 0; i < elements.productCart.size(); i++) {
+            waitForVisible(elements.productCart.get(i));
+            clickWhenReady(elements.productCart.get(i));
+            makePause(1500);
+            waitForJSToBeLoaded();
+            if (!isElementPresent(elements.configuratorButtonLocator)) {
+                driver.navigate().back();
+            }
+        }
+        waitForJSToBeLoaded();
+    }
 }

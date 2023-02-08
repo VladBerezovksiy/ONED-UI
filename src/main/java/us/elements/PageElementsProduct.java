@@ -27,6 +27,11 @@ public class PageElementsProduct extends BaseElements {
     @FindBy(css = ".js-add-to-customizer")
     public WebElement customizeButton;
 
+    public By configuratorButtonLocator = By.cssSelector(".js-add-to-designer");
+
+    @FindBy(css = ".js-add-to-designer")
+    public WebElement configuratorButton;
+
     @FindBy(xpath = "//h1")
     public WebElement productTitle;
 
@@ -50,6 +55,12 @@ public class PageElementsProduct extends BaseElements {
 
     @FindBy(xpath = "//div[@class='leftNavScrollContainer']//a[contains(.,'Tote Bags')]")
     public WebElement toteOptionInBagsSection;
+
+
+    /***************************************PRINT MARKETING MENU***************************************/
+
+    @FindBy(xpath = "//ul[@id='menu']//li[@class='ui-menu-item']/a[contains(.,'Business Cards')]")
+    public WebElement businessCardsOptionInPromotionalSection;
 
 
     /****************************************PRODUCT LIST***************************************/

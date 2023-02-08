@@ -16,7 +16,7 @@ public class ConfiguratorTests extends BaseTests {
     private ConfiguratorPageLogic logic;
 
     @BeforeClass
-    private void beforeClass(){
+    private void beforeClass() {
         driver = DriverInstances.getInstance(Settings.DRIVER);
         WebDriverWait wait = WebDriverWaitHelper.generateWaits(driver, 5, 30, 3);
         PageElementsConfigurator elements = new PageElementsConfigurator(driver);
@@ -26,12 +26,34 @@ public class ConfiguratorTests extends BaseTests {
 
     @AfterClass
     private void tearDown() {
+//        logic.clearCart();
         driver.quit();
     }
 
 
     @Test(retryAnalyzer = Retry.class)
     private void test_01_checkConfiguratorPage() {
-//        logic.checkLoginPage();
+        logic.verifyConfiguratorPage();
     }
+
+    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    private void test_02_checkProductWithoutMaterialFunctionality() {
+        logic.checkEmptyGeneral();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    private void test_03_checkAddArtworkFunctionality() {
+        logic.checkArtworkGeneral();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    private void test_04_checkAddClipartFunctionality() {
+        logic.checkClipartGeneral();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    private void test_05_checkAddTextFunctionality() {
+        logic.checkTextGeneral();
+    }
+
 }
