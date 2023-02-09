@@ -5,12 +5,47 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class PageElementsConfigurator extends PageElementsProduct {
 
     public PageElementsConfigurator(WebDriver driver) {
         super(driver);
     }
 
+
+
+    @FindBy(xpath = "//html")
+    public WebElement html;
+
+    @FindBy(xpath = "//p[contains(.,'Upload Logo on Back Side')]/ancestor::div[@class='modal-content']")
+    public WebElement modalWindow;
+
+    @FindBy(id = "addImageModalClose")
+    public WebElement closeModalWindowButton;
+
+    @FindBy(css = "#dtFileUploadPreview a")
+    public WebElement defaultDeleteImageLink;
+
+    public By defaultDeleteImageLinkLocator = By.cssSelector("#dtFileUploadPreview a");
+
+
+    /*********************************DESIGN SECTION*******************************************/
+
+    @FindBy(xpath = "//a[@id='card_panel']/parent::li")
+    public WebElement designTitle;
+
+    @FindBy(id = "imprint-container")
+    public WebElement printingAreaSection;
+
+    @FindBy(css = "#imprint-container .imprint-radio-wrap")
+    public List<WebElement> printingAreaRadioButtons;
+
+    @FindBy(id = "right-side-feild-container")
+    public WebElement templateColorSection;
+
+    @FindBy(css = ".templateColorIH div")
+    public List<WebElement> templateColorItems;
 
     @FindBy(id = "myBtn2")
     public WebElement startDesigningButton;
@@ -19,6 +54,48 @@ public class PageElementsConfigurator extends PageElementsProduct {
 
     @FindBy(id = "delete-confirm")
     public WebElement removeButtonInPanel;
+
+    @FindBy(xpath = "//div[contains(@class,'button_nxt_step') and not(contains(@style, 'none'))]")
+    public WebElement nextSectionButton;
+
+
+    /*********************************OPTIONS SECTION*******************************************/
+
+    @FindBy(xpath = "//a[@id='options_panel']/parent::li")
+    public WebElement optinsTitle;
+
+    @FindBy(id = "option_207")
+    public WebElement paperSection;
+
+    @FindBy(css = "#option_207 .imprint-radio-wrap input")
+    public List<WebElement> paperRadioButtons;
+
+
+    /*********************************REVIEW SECTION*******************************************/
+
+    @FindBy(xpath = "//a[@id='review_panel']/parent::li")
+    public WebElement reviewTitle;
+
+    @FindBy(css = "#quantity-list button")
+    public WebElement qtyButton;
+
+    @FindBy(css = "#quantity-list ul")
+    public WebElement qtyButtonDropDown;
+
+    @FindBy(css = "#quantity-list ul li")
+    public List<WebElement> qtyButtonOptions;
+
+    @FindBy(id = "option_130")
+    public WebElement productionTimeSection;
+
+    @FindBy(css = "#option_130 input")
+    public List<WebElement> productionTimeRadioButtons;
+
+    @FindBy(id = "check_review")
+    public WebElement reviewCheckbox;
+
+    @FindBy(id = "ft_addtocart")
+    public WebElement addToCardButton;
 
 
     /*********************************ADD ARTWORK AND CLIPART SECTION*******************************************/

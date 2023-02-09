@@ -76,7 +76,7 @@ public class ProductPageLogic extends MainLogic {
         clickWhenReady(elements.businessCardsOptionInPromotionalSection);
         waitForJSToBeLoaded();
 
-        for (int i = 0; i < elements.productCart.size(); i++) {
+        for (int i = 3; i < elements.productCart.size(); i++) {
             waitForVisible(elements.productCart.get(i));
             clickWhenReady(elements.productCart.get(i));
             makePause(1500);

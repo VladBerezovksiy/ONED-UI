@@ -1,7 +1,9 @@
 package us.logic;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import us.elements.PageElementsConfigurator;
 import utils.Variables;
 
@@ -31,10 +33,25 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
         makePause(9000);
         waitForJSToBeLoaded();
 
+        if (!elements.html.isDisplayed()) {
+            driver.navigate().refresh();
+            makePause(9000);
+        }
+
         if (isElementPresent(elements.modalNotification)) {
             waitForVisible(elements.startDesigningButton);
             clickWhenReady(elements.startDesigningButton);
         }
+
+        if (elements.modalWindow.isDisplayed()) {
+            if (isElementPresent(elements.defaultDeleteImageLinkLocator)) {
+                waitForVisible(elements.defaultDeleteImageLink).click();
+            }
+
+            waitForVisible(elements.closeModalWindowButton);
+            clickWhenReady(elements.closeModalWindowButton);
+        }
+        makePause(1000);
         waitForJSToBeLoaded();
     }
 
@@ -49,6 +66,7 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
     }
 
     public void checkArtworkGeneral() {
+        addArtworkInProduct();
         addArtworkInProduct();
         deleteLogoInProduct();
         addArtworkInProduct();
@@ -123,16 +141,37 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
     }
 
     private void enterValidValuesToFollowCheckout() {
-        // TODO: завтра доделать
-//        waitForVisible(elements.itemColor);
-//        clickWhenReady(elements.itemColor);
-//        waitForVisible(elements.imprintColor);
-//        clickWhenReady(elements.imprintColor);
-//        waitForVisible(elements.addToCartButton);
-//        clickWhenReady(elements.addToCartButton);
-//        makePause(3000);
-//        waitForJSToBeLoaded();
-//        waitForVisible(elements.cartTitle);
+        Assert.assertEquals("rgba(49, 116, 216, 1)", elements.designTitle.getCssValue("border-bottom-color"),
+                "The Design title section is not open!");
+        waitForVisible(elements.printingAreaSection);
+        clickWhenReady(elements.printingAreaRadioButtons.get(1));
+        if (elements.templateColorSection.isDisplayed()) {
+            clickWhenReady(elements.templateColorItems.get(1));
+        }
+        waitForVisible(elements.nextSectionButton);
+        clickWhenReady(elements.nextSectionButton);
+        waitForJSToBeLoaded();
+
+        Assert.assertEquals("rgba(49, 116, 216, 1)", elements.optinsTitle.getCssValue("border-bottom-color"),
+                "The Options title section is not open!");
+        waitForVisible(elements.paperSection);
+        clickWhenReady(elements.paperRadioButtons.get(1));
+        waitForVisible(elements.nextSectionButton);
+        clickWhenReady(elements.nextSectionButton);
+        waitForJSToBeLoaded();
+
+        Assert.assertEquals("rgba(49, 116, 216, 1)", elements.reviewTitle.getCssValue("border-bottom-color"),
+                "The Review title section is not open!");
+        waitForVisible(elements.qtyButton);
+        selectDropdownOption(elements.qtyButton, elements.qtyButtonDropDown,
+                elements.qtyButtonOptions, 2);
+        waitForVisible(elements.productionTimeSection);
+        clickWhenReady(elements.productionTimeRadioButtons.get(1));
+        waitForVisible(elements.reviewCheckbox).click();
+        waitForVisible(elements.addToCardButton);
+        clickWhenReady(elements.addToCardButton);
+        makePause(9000);
+        waitForJSToBeLoaded();
     }
 
     private void deleteLogoInProduct() {
