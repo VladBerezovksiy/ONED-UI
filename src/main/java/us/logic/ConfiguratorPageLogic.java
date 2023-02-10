@@ -33,7 +33,7 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
         makePause(9000);
         waitForJSToBeLoaded();
 
-        if (!elements.html.isDisplayed()) {
+        if (!elements.addImageButton.isDisplayed()) {
             driver.navigate().refresh();
             makePause(9000);
         }
@@ -69,14 +69,13 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
         addArtworkInProduct();
         addArtworkInProduct();
         deleteLogoInProduct();
-        addArtworkInProduct();
         enterValidValuesToFollowCheckout();
     }
 
     public void checkClipartGeneral() {
         addClipartInProduct();
-        deleteLogoInProduct();
         addClipartInProduct();
+        deleteLogoInProduct();
         enterValidValuesToFollowCheckout();
     }
 
@@ -88,6 +87,7 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
     }
 
     private void addArtworkInProduct() {
+        clickWhenReady(elements.designTitle);
         waitForVisible(elements.addImageButton);
         clickWhenReady(elements.addImageButton);
         makePause(1500);
@@ -109,6 +109,7 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
     }
 
     private void addClipartInProduct() {
+        clickWhenReady(elements.designTitle);
         waitForVisible(elements.addImageButton);
         clickWhenReady(elements.addImageButton);
         makePause(1500);
@@ -141,12 +142,17 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
     }
 
     private void enterValidValuesToFollowCheckout() {
+        if (elements.continueButton1.isDisplayed()) {
+            clickWhenReady(elements.continueButton1);
+        } else if (elements.continueButton2.isDisplayed()) {
+            clickWhenReady(elements.continueButton2);
+        }
         Assert.assertEquals("rgba(49, 116, 216, 1)", elements.designTitle.getCssValue("border-bottom-color"),
                 "The Design title section is not open!");
         waitForVisible(elements.printingAreaSection);
-        clickWhenReady(elements.printingAreaRadioButtons.get(1));
+        clickWhenReady(elements.printingAreaRadioButtons.get(0));
         if (elements.templateColorSection.isDisplayed()) {
-            clickWhenReady(elements.templateColorItems.get(1));
+            clickWhenReady(elements.templateColorItems.get(0));
         }
         waitForVisible(elements.nextSectionButton);
         clickWhenReady(elements.nextSectionButton);
@@ -155,7 +161,7 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
         Assert.assertEquals("rgba(49, 116, 216, 1)", elements.optinsTitle.getCssValue("border-bottom-color"),
                 "The Options title section is not open!");
         waitForVisible(elements.paperSection);
-        clickWhenReady(elements.paperRadioButtons.get(1));
+        clickWhenReady(elements.paperRadioButtons.get(0));
         waitForVisible(elements.nextSectionButton);
         clickWhenReady(elements.nextSectionButton);
         waitForJSToBeLoaded();
@@ -164,9 +170,9 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
                 "The Review title section is not open!");
         waitForVisible(elements.qtyButton);
         selectDropdownOption(elements.qtyButton, elements.qtyButtonDropDown,
-                elements.qtyButtonOptions, 2);
+                elements.qtyButtonOptions, 1);
         waitForVisible(elements.productionTimeSection);
-        clickWhenReady(elements.productionTimeRadioButtons.get(1));
+        clickWhenReady(elements.productionTimeRadioButtons.get(0));
         waitForVisible(elements.reviewCheckbox).click();
         waitForVisible(elements.addToCardButton);
         clickWhenReady(elements.addToCardButton);

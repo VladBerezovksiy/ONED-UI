@@ -18,6 +18,9 @@ public class PageElementsConfigurator extends PageElementsProduct {
     @FindBy(xpath = "//html")
     public WebElement html;
 
+    @FindBy(xpath = "//*[@id='dt_canavas_wrap']/div[2]/canvas[2]")
+    public WebElement product;
+
     @FindBy(xpath = "//p[contains(.,'Upload Logo on Back Side')]/ancestor::div[@class='modal-content']")
     public WebElement modalWindow;
 
@@ -91,7 +94,7 @@ public class PageElementsConfigurator extends PageElementsProduct {
     @FindBy(css = "#option_130 input")
     public List<WebElement> productionTimeRadioButtons;
 
-    @FindBy(id = "check_review")
+    @FindBy(css = ".checkbox .checkmark")
     public WebElement reviewCheckbox;
 
     @FindBy(id = "ft_addtocart")
@@ -130,6 +133,11 @@ public class PageElementsConfigurator extends PageElementsProduct {
     @FindBy(xpath = "//button[contains(.,'Delete Image') and @id]")
     public WebElement deleteImageLink;
 
+    @FindBy(css = "#super-wrapper1 button.close_text_editor")
+    public WebElement continueButton1;
+
+    @FindBy(css = ".holidaycardclass button.close_text_editor")
+    public WebElement continueButton2;
 
 
     /*********************************ADD TEXT SECTION*******************************************/
