@@ -14,16 +14,6 @@ public class PageElementsConfigurator extends PageElementsProduct {
     }
 
 
-
-    @FindBy(xpath = "//html")
-    public WebElement html;
-
-    @FindBy(xpath = "//*[@id='dt_canavas_wrap']/div[2]/canvas[2]")
-    public WebElement product;
-
-    @FindBy(xpath = "//p[contains(.,'Upload Logo on Back Side')]/ancestor::div[@class='modal-content']")
-    public WebElement modalWindow;
-
     @FindBy(id = "addImageModalClose")
     public WebElement closeModalWindowButton;
 
@@ -44,14 +34,14 @@ public class PageElementsConfigurator extends PageElementsProduct {
     @FindBy(css = "#imprint-container .imprint-radio-wrap")
     public List<WebElement> printingAreaRadioButtons;
 
-    @FindBy(id = "right-side-feild-container")
+    @FindBy(id = "option_78")
     public WebElement templateColorSection;
 
     @FindBy(css = ".templateColorIH div")
     public List<WebElement> templateColorItems;
 
-    @FindBy(id = "myBtn2")
-    public WebElement startDesigningButton;
+    @FindBy(id = "quickModelClose")
+    public WebElement closeQuickStartNotificationButton;
 
     public By modalNotification = By.cssSelector("#myCarousel .modelCustom");
 

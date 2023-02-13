@@ -1,7 +1,6 @@
 package us.logic;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import us.elements.PageElementsConfigurator;
@@ -39,18 +38,10 @@ public class ConfiguratorPageLogic extends ProductPageLogic {
         }
 
         if (isElementPresent(elements.modalNotification)) {
-            waitForVisible(elements.startDesigningButton);
-            clickWhenReady(elements.startDesigningButton);
+            waitForVisible(elements.closeQuickStartNotificationButton);
+            clickWhenReady(elements.closeQuickStartNotificationButton);
         }
 
-        if (elements.modalWindow.isDisplayed()) {
-            if (isElementPresent(elements.defaultDeleteImageLinkLocator)) {
-                waitForVisible(elements.defaultDeleteImageLink).click();
-            }
-
-            waitForVisible(elements.closeModalWindowButton);
-            clickWhenReady(elements.closeModalWindowButton);
-        }
         makePause(1000);
         waitForJSToBeLoaded();
     }
