@@ -5,7 +5,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import us.elements.PageElementsCheckout;
-import us.elements.PageElementsProduct;
 import us.logic.CheckoutPageLogic;
 import utils.DriverInstances;
 import utils.Retry;
