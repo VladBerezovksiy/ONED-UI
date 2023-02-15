@@ -63,7 +63,8 @@ public class DesignPageLogic extends ProductPageLogic {
     }
 
     private void addArtworkInProduct() {
-        clickWithSikuli(Variables.ADD_ARTWORK_BUTTON);
+        waitForVisible(elements.addArtWorkButton);
+        clickWhenReady(elements.addArtWorkButton);
         waitForJSToBeLoaded();
         clickWhenReady(elements.uploadImageInAddArtworkSection);
         makePause(1000);
@@ -76,7 +77,8 @@ public class DesignPageLogic extends ProductPageLogic {
     }
 
     private void addClipartInProduct() {
-        clickWithSikuli(Variables.ADD_CLIPART_BUTTON);
+        waitForVisible(elements.addClipartButton);
+        clickWhenReady(elements.addClipartButton);
         makePause(1500);
         waitForJSToBeLoaded();
         if (isElementPresent(elements.breadcrumbPathLocator)) {
@@ -96,7 +98,8 @@ public class DesignPageLogic extends ProductPageLogic {
     }
 
     private void addTextInProduct() {
-        clickWithSikuli(Variables.ADD_TEXT_BUTTON);
+        waitForVisible(elements.addTextButton);
+        clickWhenReady(elements.addTextButton);
         makePause(1000);
         waitForJSToBeLoaded();
         waitForVisible(elements.textInputField).clear();

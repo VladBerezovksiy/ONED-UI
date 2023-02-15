@@ -86,10 +86,6 @@ public abstract class MainLogic {
         return element;
     }
 
-    // TODO: добавить локатор на всплывающее сообщение об успешной операции (по необходимости)
-    public void waitForInvisibilityOfAllertSuccess() {
-//        waitForInvisibilityOfElementLocated(elements.alertSuccessLocator);
-    }
 
     /**
      * Waits for web-element's attribute to contain specific value
@@ -456,7 +452,6 @@ public abstract class MainLogic {
     /**
      * Check if modal with input error appeared and closes it after
      */
-    // TODO: написать локатор на вывод ошибки в модальном окне (по необходимости)
     public void checkModalErrorGeneral() {
 //        waitForVisible(elements.modal);
 //        clickWhenReady(elements.modalCloseButton);

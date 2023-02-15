@@ -24,6 +24,15 @@ public class PageElementsDesign extends PageElementsProduct {
     @FindBy(xpath = "//*[@id=\"ihd-canvas-wrapper\"]//canvas[2]")
     public WebElement logoInProduct;
 
+    @FindBy(xpath = "//div[@class='row visible-lg']//button[contains(@title,'Add an Image')]")
+    public WebElement addArtWorkButton;
+
+    @FindBy(xpath = "//div[@class='row visible-lg']//button[contains(@title,'Add Clipart')]")
+    public WebElement addClipartButton;
+
+    @FindBy(xpath = "//div[@class='row visible-lg']//button[contains(@title,'Add Text')]")
+    public WebElement addTextButton;
+
     @FindBy(xpath = "//*[@id=\"form-designer\"]//button[@type='submit']")
     public WebElement addToCartButton;
 
