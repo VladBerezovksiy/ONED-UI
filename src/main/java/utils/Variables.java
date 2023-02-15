@@ -130,6 +130,19 @@ public class Variables {
     public static final String FACEBOOK_PASSWORD = "Temp1234%";
 
 
+
+    /*********************CHECKOUT DATA************************************/
+
+    public static final String DISCOUNT_CODE = "TESTORDER2017";
+
+    public static final String CARD_NUMBER = "4111111111111111";
+    public static final String EXPIRATION_MONTH = "02";
+    public static final String EXPIRATION_YEAR = "2023";
+    public static final String CVV_CODE = "311";
+    public static final String ZIP_CODE = "651132";
+
+
+
     /************ GENERAL CSS *****************/
 
     public static final String CSS_OPEN_CLASS = "open";

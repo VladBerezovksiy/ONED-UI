@@ -26,13 +26,34 @@ public class CheckoutTests extends BaseTests {
 
     @AfterClass
     private void tearDown() {
+//        logic.clearCart();
         driver.quit();
     }
 
-
+    /**
+     * To run tests, you need to add the product to the cart!
+     **/
     @Test(retryAnalyzer = Retry.class)
-    private void test_01_checkout() {
-//        logic.checkTextGeneral();
+    private void test_01_checkCheckoutPage() {
+        logic.verifyCheckoutPage();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkCheckoutPage"}, retryAnalyzer = Retry.class)
+    private void test_02_checkCheckoutProductWithCreditCard() {
+        logic.verifyCheckoutProductWithCreditCard();
+    }
+
+    /**
+    *   Unfinished tests: test_03_checkCheckoutProductWithPayPal, test_04_checkCheckoutProductWithGooglePay
+    **/
+    @Test(dependsOnMethods = {"test_01_checkCheckoutPage"}, retryAnalyzer = Retry.class)
+    private void test_03_checkCheckoutProductWithPayPal() {
+        logic.verifyCheckoutProductWithPayPal();
+    }
+
+    @Test(dependsOnMethods = {"test_01_checkCheckoutPage"}, retryAnalyzer = Retry.class)
+    private void test_04_checkCheckoutProductWithGooglePay() {
+        logic.verifyCheckoutProductWithGooglePay();
     }
 
 }
