@@ -28,6 +28,7 @@ public class DesignPageLogic extends ProductPageLogic {
     private void openDesignSectionGeneral() {
         waitForVisible(elements.designButton);
         clickWhenReady(elements.designButton);
+        makePause(5000);
         waitForJSToBeLoaded();
     }
 
@@ -109,11 +110,13 @@ public class DesignPageLogic extends ProductPageLogic {
     private void enterValidValuesToFollowCheckout() {
         String qty = elements.qtyInDesignPage.getAttribute("value").trim();
         waitForVisible(elements.sizeInputField).clear();
-        clickWhenReady(elements.sizeInputField).sendKeys(qty);
+        elements.sizeInputField.sendKeys(qty);
+        makePause(1500);
         waitForVisible(elements.imprintColorInputField).clear();
-        clickWhenReady(elements.imprintColorInputField).sendKeys("Black");
+        elements.imprintColorInputField.sendKeys("Black");
+        makePause(1500);
         waitForVisible(elements.addToCartButton);
-        clickWhenReady(elements.addToCartButton);
+        jsclick(elements.addToCartButton);
         makePause(3000);
         waitForJSToBeLoaded();
         waitForVisible(elements.cartTitle);
@@ -121,7 +124,7 @@ public class DesignPageLogic extends ProductPageLogic {
 
     private void deleteLogoInProduct() {
         waitForVisible(elements.removeButtonInPanel);
-        clickWhenReady(elements.removeButtonInPanel);
+        jsclick(elements.removeButtonInPanel);
         makePause(1500);
         waitForVisible(elements.modalWindow);
         waitForInvisible(elements.addToCartButton);

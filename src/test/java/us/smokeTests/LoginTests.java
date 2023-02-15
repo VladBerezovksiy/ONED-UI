@@ -40,7 +40,11 @@ public class LoginTests extends BaseTests {
         logic.verificationOnTheMainPage();
     }
 
-    // Иногда вылезает капча и тест фейлится!!!
+    /**
+     *  Tests breaks due to captcha:
+     *  test_03_verificationOnTheMainPageThroughFacebook,
+     *  test_04_verificationOnTheMainPageThroughGoogle
+     * */
     @Test(retryAnalyzer = Retry.class)
     private void test_03_verificationOnTheMainPageThroughFacebook() {
         logic.verificationOnTheMainPageThroughFacebook();

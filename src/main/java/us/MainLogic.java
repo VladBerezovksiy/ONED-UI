@@ -682,7 +682,7 @@ public abstract class MainLogic {
             }
             for (int i = 0; i < elements.removeButtonInCart.size(); i++) {
                 waitForVisible(elements.removeButtonInCart.get(i));
-                clickWhenReady(elements.removeButtonInCart.get(i));
+                jsclick(elements.removeButtonInCart.get(i));
                 waitForVisible(elements.modalWindow);
                 clickWhenReady(elements.modalConfirmButton);
                 makePause(1000);

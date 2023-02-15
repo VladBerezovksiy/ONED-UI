@@ -95,7 +95,7 @@ public class BaseElements {
     @FindBy(xpath = "//a[contains(.,'All Products')]/ancestor::li[@class='dropdown']")
     public WebElement allProductsNavBar;
 
-    @FindBy(xpath = "//*[@id=\"wrapper\"]/header/div[1]/div[4]/nav[2]/div/ul/li[2]/div[1]/a")
+    @FindBy(xpath = "//li[2]//a[contains(.,\"Promotional Products & Apparel\")]")
     public WebElement promotionalProductsNavBar;
 
     @FindBy(xpath = "//*[@id=\"wrapper\"]/header/div[1]/div[4]/nav[2]/div/ul/li[3]/div[1]/a")

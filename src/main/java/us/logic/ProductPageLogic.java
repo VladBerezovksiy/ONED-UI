@@ -29,7 +29,7 @@ public class ProductPageLogic extends MainLogic {
         clickWhenReady(elements.promotionalProductsNavBar);
         waitForJSToBeLoaded();
         waitForVisible(elements.apparelOptionInPromotionalSection);
-        clickWhenReady(elements.apparelOptionInPromotionalSection);
+        jsclick(elements.apparelOptionInPromotionalSection);
         waitForJSToBeLoaded();
         waitForVisible(elements.tShirtOptionInApparelSection);
         clickWhenReady(elements.tShirtOptionInApparelSection);

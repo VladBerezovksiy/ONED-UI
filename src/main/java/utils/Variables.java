@@ -65,7 +65,7 @@ public class Variables {
     /************************CLUSTERS**********************************/
 
     public enum Clusters {
-        Stage, PreProd, Prod
+        Stage_US, PreProd_US, Prod_US, Stage_CA, PreProd_CA, Prod_CA
     }
 
 
@@ -73,18 +73,34 @@ public class Variables {
 
     public static Map<Clusters, String[][]> createClusters() {
         Map<Clusters, String[][]> map = new HashMap<>();
-        map.put(Clusters.Stage, new String[][]{
+        map.put(Clusters.Stage_US, new String[][]{
                 {"", "", ""},
                 {"", "", ""},
                 {"", "", ""}
 
         });
-        map.put(Clusters.PreProd, new String[][]{
+        map.put(Clusters.Stage_CA, new String[][]{
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""}
+
+        });
+        map.put(Clusters.PreProd_US, new String[][]{
                 {"https://preprod.deluxe.com/products/secure/myaccount/signin/", "automationined@gmail.com", "Temp1234%"},
                 {"https://preprod.deluxe.com/products/secure/myaccount/signin/", "automationoned@gmail.com", "Temp1234!"},
                 {"https://preprod.deluxe.com/products/secure/myaccount/signin/", "automationoned@gmail.com", "Temp1234!"}
         });
-        map.put(Clusters.Prod, new String[][]{
+        map.put(Clusters.PreProd_CA, new String[][]{
+                {"https://www.deluxe.ca/en-ca/products/secure/myaccount/signin/", "automationined@gmail.com", "Temp1234%"},
+                {"https://www.deluxe.ca/en-ca/products/secure/myaccount/signin/", "automationoned@gmail.com", "Temp1234!"},
+                {"https://www.deluxe.ca/en-ca/products/secure/myaccount/signin/", "automationoned@gmail.com", "Temp1234!"}
+        });
+        map.put(Clusters.Prod_US, new String[][]{
+                {"", "", ""},
+                {"", "", ""},
+                {"", "", ""}
+        });
+        map.put(Clusters.Prod_CA, new String[][]{
                 {"", "", ""},
                 {"", "", ""},
                 {"", "", ""}
