@@ -9,7 +9,6 @@ public class Variables {
 
     public static final String GOOGLE_CHROME = "GC";
     public static final String FIREFOX = "FF";
-    public static final String INTERNET_EXPLORER = "IE";
     public static final String EDGE = "EG";
 
 

@@ -27,7 +27,7 @@ public class DriverInstances {
     static {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\chromedriver.exe");
         System.setProperty(GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\geckodriver.exe");
-        System.setProperty(EdgeDriverService.EDGE_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resourses\\drivers\\msedgedriver.exe");
+        System.setProperty(EdgeDriverService.EDGE_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\msedgedriver.exe");
     }
 
     private DriverInstances() {
@@ -75,9 +75,6 @@ public class DriverInstances {
                 firefoxOptions.addPreference("browser.download.manager.showAlertOnComplete", false);
                 firefoxOptions.addPreference("browser.download.manager.closeWhenDone", false);
                 webDriver = new FirefoxDriver(firefoxOptions);
-                break;
-            case Variables.INTERNET_EXPLORER:
-                webDriver = new InternetExplorerDriver();
                 break;
             case Variables.EDGE:
                 webDriver = new EdgeDriver();

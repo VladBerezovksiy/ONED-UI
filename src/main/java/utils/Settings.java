@@ -4,7 +4,8 @@ import static utils.Variables.*;
 
 public class Settings {
 
-    public static final String DRIVER = GOOGLE_CHROME;
+    // TODO: подключить firefox драйвер
+    public static final String DRIVER = FIREFOX;
     public static Clusters currentCluster = Clusters.PreProd_US;
     public static final OSVersions OS = Variables.OSVersions.WIN10;
 
