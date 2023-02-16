@@ -1,4 +1,4 @@
-package us.elements;
+package oneDelux.elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

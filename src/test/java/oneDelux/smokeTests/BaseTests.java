@@ -1,4 +1,4 @@
-package us.smokeTests;
+package oneDelux.smokeTests;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;

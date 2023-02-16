@@ -1,26 +1,26 @@
-package us.smokeTests;
+package oneDelux.smokeTests;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import us.elements.PageElementsConfigurator;
-import us.logic.ConfiguratorPageLogic;
+import oneDelux.elements.PageElementsCustomize;
+import oneDelux.logic.CustomizePageLogic;
 import utils.DriverInstances;
 import utils.Retry;
 import utils.Settings;
 import utils.WebDriverWaitHelper;
 
-public class ConfiguratorTests extends BaseTests {
+public class CustomizeTests extends BaseTests {
 
-    private ConfiguratorPageLogic logic;
+    private CustomizePageLogic logic;
 
     @BeforeClass
     private void beforeClass() {
         driver = DriverInstances.getInstance(Settings.DRIVER);
         WebDriverWait wait = WebDriverWaitHelper.generateWaits(driver, 5, 30, 3);
-        PageElementsConfigurator elements = new PageElementsConfigurator(driver);
-        logic = new ConfiguratorPageLogic(driver, wait, elements);
+        PageElementsCustomize elements = new PageElementsCustomize(driver);
+        logic = new CustomizePageLogic(driver, wait, elements);
         logic.getRootPage();
     }
 
@@ -32,28 +32,27 @@ public class ConfiguratorTests extends BaseTests {
 
 
     @Test(retryAnalyzer = Retry.class)
-    private void test_01_checkConfiguratorPage() {
-        logic.verifyConfiguratorPage();
+    private void test_01_checkCustomizePage() {
+        logic.verifyCustomizePage();
     }
 
-    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
     private void test_02_checkProductWithoutMaterialFunctionality() {
         logic.checkEmptyGeneral();
     }
 
-    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
     private void test_03_checkAddArtworkFunctionality() {
         logic.checkArtworkGeneral();
     }
 
-    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
     private void test_04_checkAddClipartFunctionality() {
         logic.checkClipartGeneral();
     }
 
-    @Test(dependsOnMethods = {"test_01_checkConfiguratorPage"}, retryAnalyzer = Retry.class)
+    @Test(dependsOnMethods = {"test_01_checkCustomizePage"}, retryAnalyzer = Retry.class)
     private void test_05_checkAddTextFunctionality() {
         logic.checkTextGeneral();
     }
-
 }

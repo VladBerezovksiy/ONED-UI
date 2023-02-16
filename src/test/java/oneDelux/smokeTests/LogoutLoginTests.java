@@ -1,11 +1,11 @@
-package us.smokeTests;
+package oneDelux.smokeTests;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import us.BaseElements;
-import us.MainLogic;
+import oneDelux.BaseElements;
+import oneDelux.MainLogic;
 import utils.*;
 
 public class LogoutLoginTests extends BaseTests {

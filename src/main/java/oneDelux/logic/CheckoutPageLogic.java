@@ -1,8 +1,8 @@
-package us.logic;
+package oneDelux.logic;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import us.elements.PageElementsCheckout;
+import oneDelux.elements.PageElementsCheckout;
 import utils.Variables;
 
 public class CheckoutPageLogic extends ProductPageLogic {

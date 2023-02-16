@@ -1,10 +1,10 @@
-package us.logic;
+package oneDelux.logic;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import us.MainLogic;
-import us.elements.PageElementsLogin;
+import oneDelux.MainLogic;
+import oneDelux.elements.PageElementsLogin;
 import utils.Variables;
 
 import java.util.*;

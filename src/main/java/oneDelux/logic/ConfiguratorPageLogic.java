@@ -1,9 +1,9 @@
-package us.logic;
+package oneDelux.logic;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import us.elements.PageElementsConfigurator;
+import oneDelux.elements.PageElementsConfigurator;
 import utils.Variables;
 
 public class ConfiguratorPageLogic extends ProductPageLogic {

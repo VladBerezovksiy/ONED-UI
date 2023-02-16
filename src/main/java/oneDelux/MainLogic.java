@@ -1,4 +1,4 @@
-package us;
+package oneDelux;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -8,7 +8,6 @@ import org.sikuli.script.FindFailed;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 import org.testng.Assert;
-import utils.Settings;
 import utils.Variables;
 
 import java.io.File;
@@ -347,10 +346,21 @@ public abstract class MainLogic {
         return element;
     }
 
-    public WebElement jsclick(WebElement element) {
+    public WebElement jsClick(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
         return element;
+    }
+
+    public WebElement jsScroll(WebElement element) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].scrollIntoView();", element);
+        return element;
+    }
+
+    public void jsScrollDown() {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
 
@@ -682,7 +692,7 @@ public abstract class MainLogic {
             }
             for (int i = 0; i < elements.removeButtonInCart.size(); i++) {
                 waitForVisible(elements.removeButtonInCart.get(i));
-                jsclick(elements.removeButtonInCart.get(i));
+                jsClick(elements.removeButtonInCart.get(i));
                 waitForVisible(elements.modalWindow);
                 clickWhenReady(elements.modalConfirmButton);
                 makePause(1000);
@@ -717,7 +727,7 @@ public abstract class MainLogic {
 
     public void unsetCheckboxMF(WebElement checkbox) {
         if (checkbox.getAttribute(Variables.CSS_CLASS_ATR).contains(Variables.CSS_CHECKED_CLASS)) {
-            jsclick(checkbox);
+            jsClick(checkbox);
         }
     }
 

@@ -1,9 +1,9 @@
-package us.smokeTests;
+package oneDelux.smokeTests;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-import us.elements.PageElementsDesign;
-import us.logic.DesignPageLogic;
+import oneDelux.elements.PageElementsDesign;
+import oneDelux.logic.DesignPageLogic;
 import utils.*;
 
 public class DesignTests extends BaseTests {

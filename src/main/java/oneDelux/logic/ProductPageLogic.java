@@ -1,9 +1,9 @@
-package us.logic;
+package oneDelux.logic;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import us.MainLogic;
-import us.elements.PageElementsProduct;
+import oneDelux.MainLogic;
+import oneDelux.elements.PageElementsProduct;
 
 public class ProductPageLogic extends MainLogic {
 
@@ -29,7 +29,7 @@ public class ProductPageLogic extends MainLogic {
         clickWhenReady(elements.promotionalProductsNavBar);
         waitForJSToBeLoaded();
         waitForVisible(elements.apparelOptionInPromotionalSection);
-        jsclick(elements.apparelOptionInPromotionalSection);
+        jsClick(elements.apparelOptionInPromotionalSection);
         waitForJSToBeLoaded();
         waitForVisible(elements.tShirtOptionInApparelSection);
         clickWhenReady(elements.tShirtOptionInApparelSection);

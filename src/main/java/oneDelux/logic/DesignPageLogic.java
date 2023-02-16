@@ -1,15 +1,15 @@
-package us.logic;
+package oneDelux.logic;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import us.elements.PageElementsCustomize;
+import oneDelux.elements.PageElementsDesign;
 import utils.Variables;
 
-public class CustomizePageLogic extends ProductPageLogic {
+public class DesignPageLogic extends ProductPageLogic {
 
-    private PageElementsCustomize elements;
+    private PageElementsDesign elements;
 
-    public CustomizePageLogic(WebDriver driver, WebDriverWait wait, PageElementsCustomize elements) {
+    public DesignPageLogic(WebDriver driver, WebDriverWait wait, PageElementsDesign elements) {
         super(driver, wait, elements);
         this.elements = elements;
     }
@@ -25,16 +25,17 @@ public class CustomizePageLogic extends ProductPageLogic {
     }
 
 
-    private void openCustomizeSectionGeneral() {
-        waitForVisible(elements.customizeButton);
-        clickWhenReady(elements.customizeButton);
+    private void openDesignSectionGeneral() {
+        waitForVisible(elements.designButton);
+        clickWhenReady(elements.designButton);
+        makePause(5000);
         waitForJSToBeLoaded();
     }
 
-    public void verifyCustomizePage() {
+    public void verifyDesignPage() {
         login(Variables.MAIN_ACCOUNT, Variables.MAIN_PASSWORD);
-        openProductPageForCustomizeSection();
-        openCustomizeSectionGeneral();
+        openProductPageForDesignSection();
+        openDesignSectionGeneral();
     }
 
     public void checkEmptyGeneral() {
@@ -65,20 +66,15 @@ public class CustomizePageLogic extends ProductPageLogic {
     private void addArtworkInProduct() {
         waitForVisible(elements.addArtWorkButton);
         clickWhenReady(elements.addArtWorkButton);
-        makePause(1500);
         waitForJSToBeLoaded();
         clickWhenReady(elements.uploadImageInAddArtworkSection);
         makePause(1000);
         uploadFile(Variables.PROJECT_UPLOAD_TEST_PATH + Variables.IMAGE_PATH);
-        makePause(1500);
-        waitForJSToBeLoaded();
-        waitForVisible(elements.uploadFileButton);
-        clickWhenReady(elements.uploadFileButton);
         makePause(5000);
-        waitForVisible(elements.confirmUploadFile);
-        clickWhenReady(elements.confirmUploadFile);
-        makePause(1000);
         waitForJSToBeLoaded();
+        waitForVisible(elements.logoInProduct);
+        clickWhenReady(elements.logoInProduct);
+        makePause(1500);
     }
 
     private void addClipartInProduct() {
@@ -95,8 +91,11 @@ public class CustomizePageLogic extends ProductPageLogic {
             waitForVisible(elements.officeLogo);
             clickWhenReady(elements.officeLogo);
         }
-        makePause(3000);
+        makePause(1000);
         waitForJSToBeLoaded();
+        waitForVisible(elements.logoInProduct);
+        clickWhenReady(elements.logoInProduct);
+        makePause(1500);
     }
 
     private void addTextInProduct() {
@@ -109,28 +108,29 @@ public class CustomizePageLogic extends ProductPageLogic {
     }
 
     private void enterValidValuesToFollowCheckout() {
-        waitForVisible(elements.itemColor);
-        clickWhenReady(elements.itemColor);
-        waitForVisible(elements.imprintColor);
-        clickWhenReady(elements.imprintColor);
+        String qty = elements.qtyInDesignPage.getAttribute("value").trim();
+        waitForVisible(elements.sizeInputField).clear();
+        elements.sizeInputField.sendKeys(qty);
+        makePause(1500);
+        waitForVisible(elements.imprintColorInputField).clear();
+        elements.imprintColorInputField.sendKeys("Black");
+        makePause(1500);
         waitForVisible(elements.addToCartButton);
-        clickWhenReady(elements.addToCartButton);
+        jsClick(elements.addToCartButton);
         makePause(3000);
         waitForJSToBeLoaded();
         waitForVisible(elements.cartTitle);
     }
 
     private void deleteLogoInProduct() {
-        if (elements.removeButtonInPanel.size() > 0) {
-            for (int i = 0; i < elements.removeButtonInPanel.size(); i++) {
-                waitForVisible(elements.removeButtonInPanel.get(i));
-                clickWhenReady(elements.removeButtonInPanel.get(i));
-                makePause(1500);
-            }
-        }
-        if (!elements.textInputField.getText().isEmpty()) {
-            waitForVisible(elements.textInputField).clear();
-        }
-        makePause(2000);
+        waitForVisible(elements.removeButtonInPanel);
+        jsClick(elements.removeButtonInPanel);
+        makePause(1500);
+        waitForVisible(elements.modalWindow);
+        waitForInvisible(elements.addToCartButton);
+        clickWhenReady(elements.modalConfirmButton);
+        makePause(1500);
+        waitForVisible(elements.addToCartButton);
     }
+
 }

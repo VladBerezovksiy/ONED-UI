@@ -1,11 +1,11 @@
-package us.smokeTests;
+package oneDelux.smokeTests;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import us.elements.PageElementsLogin;
-import us.logic.LoginPageTestLogic;
+import oneDelux.elements.PageElementsLogin;
+import oneDelux.logic.LoginPageTestLogic;
 import utils.DriverInstances;
 import utils.Retry;
 import utils.Settings;
