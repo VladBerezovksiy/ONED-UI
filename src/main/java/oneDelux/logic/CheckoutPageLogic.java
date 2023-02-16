@@ -3,6 +3,7 @@ package oneDelux.logic;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import oneDelux.elements.PageElementsCheckout;
+import org.testng.Assert;
 import utils.Variables;
 
 public class CheckoutPageLogic extends ProductPageLogic {
@@ -33,6 +34,7 @@ public class CheckoutPageLogic extends ProductPageLogic {
 
     public void verifyCheckoutProductWithCreditCard() {
         enterValidValuesToFinishedCheckout();
+        jsScroll(elements.creditCardButton);
         waitForVisible(elements.creditCardButton);
         clickWhenReady(elements.creditCardButton);
         makePause(1000);
@@ -102,11 +104,14 @@ public class CheckoutPageLogic extends ProductPageLogic {
                 makePause(1500);
                 waitForJSToBeLoaded();
             }
+        } else {
+            Assert.assertFalse(elements.cartIndexTab.getText().trim().equals(""), "You need add Product in cart!!!");
         }
     }
 
     private void enterValidValuesToFinishedCheckout() {
         waitForVisible(elements.yourBuyingReasonSection);
+        jsScroll(elements.yourBuyingReasonDropdown);
         selectDropdownOption(elements.yourBuyingReasonDropdown, elements.yourBuyingReasonDropdown,
                 elements.yourBuyingReasonOption, 15);
         waitForVisible(elements.discountCodeSection);
