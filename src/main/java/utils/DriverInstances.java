@@ -26,8 +26,8 @@ public class DriverInstances {
 
     static {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\chromedriver.exe");
-        System.setProperty(GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\geckodriver.exe");
         System.setProperty(EdgeDriverService.EDGE_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\msedgedriver.exe");
+        System.setProperty(GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "\\src\\main\\resources\\drivers\\geckodriver.exe");
     }
 
     private DriverInstances() {
@@ -61,19 +61,19 @@ public class DriverInstances {
                 break;
             case Variables.FIREFOX:
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addPreference("browser.download.dir", Variables.PROJECT_DOWNLOAD_PATH);
-                firefoxOptions.addPreference("browser.download.folderList", 2);
-                firefoxOptions.addPreference("browser.download.manager.showWhenStarting", false);
-                firefoxOptions.addPreference("browser.helperApps.neverAsk.openFile",
-                        Variables.MIME_TYPES);
-                firefoxOptions.addPreference("browser.helperApps.neverAsk.saveToDisk",
-                        Variables.MIME_TYPES);
-                firefoxOptions.addPreference("browser.helperApps.alwaysAsk.force", false);
-                firefoxOptions.addPreference("browser.download.manager.alertOnEXEOpen", false);
-                firefoxOptions.addPreference("browser.download.manager.focusWhenStarting", false);
-                firefoxOptions.addPreference("browser.download.manager.useWindow", false);
-                firefoxOptions.addPreference("browser.download.manager.showAlertOnComplete", false);
-                firefoxOptions.addPreference("browser.download.manager.closeWhenDone", false);
+//                firefoxOptions.addPreference("browser.download.dir", Variables.PROJECT_DOWNLOAD_PATH);
+//                firefoxOptions.addPreference("browser.download.folderList", 2);
+//                firefoxOptions.addPreference("browser.download.manager.showWhenStarting", false);
+//                firefoxOptions.addPreference("browser.helperApps.neverAsk.openFile",
+//                        Variables.MIME_TYPES);
+//                firefoxOptions.addPreference("browser.helperApps.neverAsk.saveToDisk",
+//                        Variables.MIME_TYPES);
+//                firefoxOptions.addPreference("browser.helperApps.alwaysAsk.force", false);
+//                firefoxOptions.addPreference("browser.download.manager.alertOnEXEOpen", false);
+//                firefoxOptions.addPreference("browser.download.manager.focusWhenStarting", false);
+//                firefoxOptions.addPreference("browser.download.manager.useWindow", false);
+//                firefoxOptions.addPreference("browser.download.manager.showAlertOnComplete", false);
+//                firefoxOptions.addPreference("browser.download.manager.closeWhenDone", false);
                 webDriver = new FirefoxDriver(firefoxOptions);
                 break;
             case Variables.EDGE:
